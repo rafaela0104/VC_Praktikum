@@ -1,8 +1,9 @@
 {
+	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libGLEWd.so"
+			"path" : "lib/libGLEWd.a"
 		}
 	],
 	"backtrace" : 1,
@@ -11,8 +12,9 @@
 		"commands" : 
 		[
 			"add_library",
-			"set_target_properties",
+			"install",
 			"add_definitions",
+			"set_target_properties",
 			"include_directories"
 		],
 		"files" : 
@@ -27,13 +29,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 95,
+				"line" : 99,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 96,
+				"line" : 156,
 				"parent" : 0
 			},
 			{
@@ -44,6 +46,12 @@
 			},
 			{
 				"command" : 3,
+				"file" : 0,
+				"line" : 100,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
 				"file" : 0,
 				"line" : 86,
 				"parent" : 0
@@ -56,28 +64,25 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -fPIC -fdiagnostics-color=always"
+					"fragment" : "-g -fdiagnostics-color=always"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 2,
-					"define" : "GLEW_BUILD"
-				},
-				{
 					"backtrace" : 3,
 					"define" : "GLEW_NO_GLU"
 				},
 				{
-					"define" : "glew_EXPORTS"
+					"backtrace" : 4,
+					"define" : "GLEW_STATIC"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include"
+					"backtrace" : 5,
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include"
 				}
 			],
 			"language" : "C",
@@ -87,28 +92,23 @@
 			]
 		}
 	],
-	"id" : "glew::@717d470b011500e00557",
-	"link" : 
+	"id" : "glew_s::@717d470b011500e00557",
+	"install" : 
 	{
-		"commandFragments" : 
+		"destinations" : 
 		[
 			{
-				"fragment" : "",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "-lGL",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lGLU",
-				"role" : "libraries"
+				"backtrace" : 2,
+				"path" : "lib"
 			}
 		],
-		"language" : "C"
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
 	},
-	"name" : "glew",
-	"nameOnDisk" : "libGLEWd.so",
+	"name" : "glew_s",
+	"nameOnDisk" : "libGLEWd.a",
 	"paths" : 
 	{
 		"build" : "libs/glew-2.1.0/build/cmake",
@@ -157,5 +157,5 @@
 			"sourceGroupIndex" : 1
 		}
 	],
-	"type" : "SHARED_LIBRARY"
+	"type" : "STATIC_LIBRARY"
 }

@@ -1,4 +1,4 @@
-# Install script for directory: /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src
+# Install script for directory: /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DGLEW_STATIC
 
-CXX_INCLUDES = -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src/Framework/Assets -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src/Framework/SceneElements -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src/Game -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/framework -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/include -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/include -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/include/GL -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glm-master -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/stb
+CXX_INCLUDES = -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/SceneElements -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src/Game -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/framework -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/include -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/include -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/include/GL -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glm-master -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/stb
 
 CXX_FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
 

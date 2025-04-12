@@ -1,4 +1,4 @@
-# Install script for directory: /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/stb
+# Install script for directory: /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/stb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

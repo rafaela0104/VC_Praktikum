@@ -1,4 +1,4 @@
-# Install script for directory: /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs
+# Install script for directory: /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,10 +44,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/cmake_install.cmake")
-  include("/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glfw-3.2.1/cmake_install.cmake")
-  include("/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glew-2.1.0/build/cmake/cmake_install.cmake")
-  include("/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/stb/cmake_install.cmake")
+  include("/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/cmake_install.cmake")
+  include("/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glfw-3.2.1/cmake_install.cmake")
+  include("/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glew-2.1.0/build/cmake/cmake_install.cmake")
+  include("/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/stb/cmake_install.cmake")
 
 endif()
 

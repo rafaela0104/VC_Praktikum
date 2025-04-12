@@ -57,10 +57,10 @@ RM = /home/rafaela/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum
+CMAKE_SOURCE_DIR = /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/CMakeFiles /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glm-master//CMakeFiles/progress.marks
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/CMakeFiles 0
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/CMakeFiles /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glm-master//CMakeFiles/progress.marks
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/clean
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/preinstall
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/preinstall
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libs/glm-master/CMakeFiles/uninstall.dir/rule:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/CMakeFiles/uninstall.dir/rule
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glm-master/CMakeFiles/uninstall.dir/rule
 .PHONY : libs/glm-master/CMakeFiles/uninstall.dir/rule
 
 # Convenience name for target.
@@ -172,7 +172,7 @@ uninstall: libs/glm-master/CMakeFiles/uninstall.dir/rule
 
 # fast build rule for target.
 uninstall/fast:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glm-master/CMakeFiles/uninstall.dir/build.make libs/glm-master/CMakeFiles/uninstall.dir/build
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glm-master/CMakeFiles/uninstall.dir/build.make libs/glm-master/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
 # Help Target
@@ -199,6 +199,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

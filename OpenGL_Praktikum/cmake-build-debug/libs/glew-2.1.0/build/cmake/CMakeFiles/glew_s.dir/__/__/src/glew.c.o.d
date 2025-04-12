@@ -1,7 +1,7 @@
 libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.o: \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/src/glew.c \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/src/glew.c \
  /usr/include/stdc-predef.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include/GL/glew.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include/GL/glew.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
@@ -13,7 +13,7 @@ libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.o: \
  /usr/include/bits/time64.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
  /usr/include/bits/stdint-least.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include/GL/glxew.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include/GL/glxew.h \
  /usr/include/X11/Xlib.h /usr/include/sys/types.h \
  /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
  /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \

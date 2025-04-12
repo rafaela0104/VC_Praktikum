@@ -80,11 +80,11 @@
 			[
 				{
 					"backtrace" : 5,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glm-master"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glm-master"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glm-master/glm/.."
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glm-master/glm/.."
 				}
 			],
 			"language" : "CXX",

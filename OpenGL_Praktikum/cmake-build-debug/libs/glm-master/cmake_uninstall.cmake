@@ -1,13 +1,13 @@
-if(NOT EXISTS "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt")
-endif(NOT EXISTS "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt")
+if(NOT EXISTS "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt")
+endif(NOT EXISTS "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt")
 
 if (NOT DEFINED CMAKE_INSTALL_PREFIX)
   set (CMAKE_INSTALL_PREFIX "/usr/local")
 endif ()
  message(${CMAKE_INSTALL_PREFIX})
 
-file(READ "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt" files)
+file(READ "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glm-master/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")

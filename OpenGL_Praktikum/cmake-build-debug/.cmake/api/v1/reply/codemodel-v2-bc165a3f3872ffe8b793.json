@@ -312,35 +312,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "OpenGL_Praktikum::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-OpenGL_Praktikum-Debug-9827943d7251b74ad486.json",
+					"jsonFile" : "target-OpenGL_Praktikum-Debug-8562e01fc6e081a96a79.json",
 					"name" : "OpenGL_Praktikum",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 12,
 					"id" : "glew::@717d470b011500e00557",
-					"jsonFile" : "target-glew-Debug-f7f4cf678af9c1727de5.json",
+					"jsonFile" : "target-glew-Debug-ec4cd82617257f48754e.json",
 					"name" : "glew",
 					"projectIndex" : 4
 				},
 				{
 					"directoryIndex" : 12,
 					"id" : "glew_s::@717d470b011500e00557",
-					"jsonFile" : "target-glew_s-Debug-fd027ac9282a4c35242c.json",
+					"jsonFile" : "target-glew_s-Debug-a2f653f7db1973538e8c.json",
 					"name" : "glew_s",
 					"projectIndex" : 4
 				},
 				{
 					"directoryIndex" : 11,
 					"id" : "glfw::@3be6e5b4e7ef208431a5",
-					"jsonFile" : "target-glfw-Debug-e0c4e85827e78e22c188.json",
+					"jsonFile" : "target-glfw-Debug-f7821db28da0817a5b2c.json",
 					"name" : "glfw",
 					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "glm_dummy::@c4b06e10c1177513689b",
-					"jsonFile" : "target-glm_dummy-Debug-61a7d3fd054a922b3945.json",
+					"jsonFile" : "target-glm_dummy-Debug-c9f8cb2613821118e06c.json",
 					"name" : "glm_dummy",
 					"projectIndex" : 2
 				},
@@ -364,8 +364,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug",
-		"source" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum"
+		"build" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug",
+		"source" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum"
 	},
 	"version" : 
 	{

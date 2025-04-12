@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DGLEW_NO_GLU -DGLEW_STATIC
 
-C_INCLUDES = -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include
+C_INCLUDES = -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake/../../include
 
 C_FLAGS = -g -fdiagnostics-color=always
 

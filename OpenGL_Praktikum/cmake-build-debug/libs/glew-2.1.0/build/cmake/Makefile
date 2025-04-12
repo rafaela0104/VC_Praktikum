@@ -57,10 +57,10 @@ RM = /home/rafaela/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum
+CMAKE_SOURCE_DIR = /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug
+CMAKE_BINARY_DIR = /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/CMakeFiles /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glew-2.1.0/build/cmake//CMakeFiles/progress.marks
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/CMakeFiles 0
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/CMakeFiles /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glew-2.1.0/build/cmake//CMakeFiles/progress.marks
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/clean
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/preinstall
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/preinstall
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule
 .PHONY : libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule
 
 # Convenience name for target.
@@ -172,12 +172,12 @@ glew: libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/rule
 
 # fast build rule for target.
 glew/fast:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build
 .PHONY : glew/fast
 
 # Convenience name for target.
 libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule
 .PHONY : libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule
 
 # Convenience name for target.
@@ -186,7 +186,7 @@ glew_s: libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/rule
 
 # fast build rule for target.
 glew_s/fast:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build
 .PHONY : glew_s/fast
 
 __/__/src/glew.o: __/__/src/glew.c.o
@@ -194,8 +194,8 @@ __/__/src/glew.o: __/__/src/glew.c.o
 
 # target to build an object file
 __/__/src/glew.c.o:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/__/__/src/glew.c.o
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.o
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/__/__/src/glew.c.o
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.o
 .PHONY : __/__/src/glew.c.o
 
 __/__/src/glew.i: __/__/src/glew.c.i
@@ -203,8 +203,8 @@ __/__/src/glew.i: __/__/src/glew.c.i
 
 # target to preprocess a source file
 __/__/src/glew.c.i:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/__/__/src/glew.c.i
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.i
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/__/__/src/glew.c.i
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.i
 .PHONY : __/__/src/glew.c.i
 
 __/__/src/glew.s: __/__/src/glew.c.s
@@ -212,8 +212,8 @@ __/__/src/glew.s: __/__/src/glew.c.s
 
 # target to generate assembly for a file
 __/__/src/glew.c.s:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/__/__/src/glew.c.s
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.s
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew.dir/__/__/src/glew.c.s
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(MAKE) $(MAKESILENT) -f libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/build.make libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.s
 .PHONY : __/__/src/glew.c.s
 
 # Help Target
@@ -244,6 +244,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

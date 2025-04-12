@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -583,7 +583,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -703,7 +703,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1751,7 +1751,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glfw-3.2.1"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glfw-3.2.1"
 		},
 		{
 			"name" : "GLFW_BUILD_DOCS",
@@ -1835,7 +1835,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1"
 		},
 		{
 			"name" : "GLFW_USE_MIR",
@@ -2315,7 +2315,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug"
 		},
 		{
 			"name" : "OpenGL_Praktikum_IS_TOP_LEVEL",
@@ -2339,7 +2339,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum"
 		},
 		{
 			"name" : "PKG_CONFIG_ARGN",
@@ -5099,7 +5099,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs"
 		},
 		{
 			"name" : "external_dependencies_IS_TOP_LEVEL",
@@ -5123,7 +5123,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs"
 		},
 		{
 			"name" : "glew_BINARY_DIR",
@@ -5135,7 +5135,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glew-2.1.0/build/cmake"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glew-2.1.0/build/cmake"
 		},
 		{
 			"name" : "glew_IS_TOP_LEVEL",
@@ -5171,7 +5171,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/build/cmake"
 		},
 		{
 			"name" : "glew_s_LIB_DEPENDS",
@@ -5195,7 +5195,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glm-master"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glm-master"
 		},
 		{
 			"name" : "glm_IS_TOP_LEVEL",
@@ -5219,7 +5219,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glm-master"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glm-master"
 		},
 		{
 			"name" : "pkgcfg_lib_PKG_FONTCONFIG_fontconfig",
@@ -5275,7 +5275,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/stb"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/stb"
 		},
 		{
 			"name" : "stb_lib_IS_TOP_LEVEL",
@@ -5299,7 +5299,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/stb"
+			"value" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/stb"
 		}
 	],
 	"kind" : "cache",

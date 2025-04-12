@@ -83,43 +83,43 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src/Framework/Assets"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src/Framework/SceneElements"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/SceneElements"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src/Game"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/src/Game"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/framework"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/framework"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/include"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/include"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glew-2.1.0/include/GL"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glew-2.1.0/include/GL"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glm-master"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glm-master"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/stb"
+					"path" : "/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/stb"
 				}
 			],
 			"language" : "CXX",

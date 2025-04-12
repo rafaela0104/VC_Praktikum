@@ -1,7 +1,7 @@
 libs/stb/CMakeFiles/stb.dir/stb_image.c.o: \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/stb/stb_image.c \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/stb/stb_image.c \
  /usr/include/stdc-predef.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/stb/stb_image.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/stb/stb_image.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \

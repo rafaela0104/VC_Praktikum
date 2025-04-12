@@ -1,9 +1,9 @@
 libs/glfw-3.2.1/src/CMakeFiles/glfw.dir/glx_context.c.o: \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/glx_context.c \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/glx_context.c \
  /usr/include/stdc-predef.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/internal.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/cmake-build-debug/libs/glfw-3.2.1/src/glfw_config.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/../include/GLFW/glfw3.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/internal.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug/libs/glfw-3.2.1/src/glfw_config.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/../include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
@@ -15,7 +15,7 @@ libs/glfw-3.2.1/src/CMakeFiles/glfw.dir/glx_context.c.o: \
  /usr/include/bits/time64.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
  /usr/include/bits/stdint-least.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/x11_platform.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/x11_platform.h \
  /usr/include/unistd.h /usr/include/bits/posix_opt.h \
  /usr/include/bits/environments.h /usr/include/bits/confname.h \
  /usr/include/bits/getopt_posix.h /usr/include/bits/getopt_core.h \
@@ -62,7 +62,7 @@ libs/glfw-3.2.1/src/CMakeFiles/glfw.dir/glx_context.c.o: \
  /usr/include/X11/extensions/XKB.h /usr/include/X11/extensions/Xinerama.h \
  /usr/include/X11/extensions/xf86vmode.h /usr/include/X11/Xmd.h \
  /usr/include/X11/extensions/xf86vm.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/posix_tls.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/posix_tls.h \
  /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
  /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
  /usr/include/time.h /usr/include/bits/time.h \
@@ -73,12 +73,12 @@ libs/glfw-3.2.1/src/CMakeFiles/glfw.dir/glx_context.c.o: \
  /usr/include/bits/types/struct___jmp_buf_tag.h \
  /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/bits/pthread_stack_min.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/posix_time.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/linux_joystick.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/posix_time.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/linux_joystick.h \
  /usr/include/regex.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/xkb_unicode.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/glx_context.h \
- /home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glfw-3.2.1/src/egl_context.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/xkb_unicode.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/glx_context.h \
+ /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glfw-3.2.1/src/egl_context.h \
  /usr/include/string.h /usr/include/strings.h /usr/include/stdlib.h \
  /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
  /usr/include/alloca.h /usr/include/bits/stdlib-float.h \

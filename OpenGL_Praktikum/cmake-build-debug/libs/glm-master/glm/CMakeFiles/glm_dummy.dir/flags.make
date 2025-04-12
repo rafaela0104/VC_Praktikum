@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glm-master -I/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/libs/glm-master/glm/..
+CXX_INCLUDES = -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glm-master -I/home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/glm-master/glm/..
 
 CXX_FLAGS = -g -fdiagnostics-color=always -O2 -Wno-long-long
 
