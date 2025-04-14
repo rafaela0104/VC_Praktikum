@@ -27,12 +27,8 @@ public:
 private:
 	OpenGLWindow* m_window;
 	AssetManager m_assets;
-    ShaderProgram* m_shader;
-    GLuint vaoID, vboID, iboID;
+	ShaderProgram* m_shader;
+	GLuint vaoID, vboID;
 
-	GLuint m_vao = 0;
-	GLuint m_vbo = 0;
-	GLuint m_ibo = 0;
-	GLuint m_numIndices = 0;
 };
 
