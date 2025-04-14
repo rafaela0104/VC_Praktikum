@@ -29,13 +29,31 @@ bool Scene::init()
 						 0, 2, 4,
 						 4, 2, 3};
 
-		/*
-		 * ************
-		 * Place your code here!
-		 * ************
-		 */
+		//my code
+		//1a VBO erzeugen und binden
+		glGenBuffers(1, &m_vbo);
+		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+		//1b VAO erzeugen und binden
+		glGenVertexArrays(1, &m_vao);
+		glBindVertexArray(m_vao);
 
+		//1c VAO und VBO aktivieren
+		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+		glEnableVertexAttribArray(0);
+
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(2 * sizeof(float)));
+		glEnableVertexAttribArray(1);
+
+		//1d IBO erstellen und binden
+		glGenBuffers(1, &m_vio);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vio);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+		//1e
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		glBindVertexArray(0);
 		std::cout << "Scene initialization done\n";
 		return true;
 	}
@@ -48,11 +66,10 @@ bool Scene::init()
 void Scene::render(float dt)
 {
 
-	/*
-	* ************
-	* Place your code here!
-	* ************
-	*/
+	//my code
+	m_shader->use();
+	glBindVertexArray(m_vao);
+	glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 
 
 

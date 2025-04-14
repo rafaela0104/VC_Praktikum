@@ -29,6 +29,7 @@ private:
 	AssetManager m_assets;
 	ShaderProgram* m_shader;
 	GLuint vaoID, vboID;
+	GLuint m_vao = 0, m_vbo = 0, m_vio = 0;
 
 };
 
