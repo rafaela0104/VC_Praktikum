@@ -21,27 +21,51 @@ bool Scene::init()
 
 		float vertices[] = {
 			//R - Linker Balken
-			-0.5f, 0.2f, 1.0f, 0.0f, 0.0f, //0
-			-0.42f, 0.2f, 1.0f, 0.0f, 0.0f, //1
- 			-0.5f, 0.6f, 1.0f, 0.0f, 0.0f, //2
-			-0.42f, 0.6f, 1.0f, 0.f, 0.0f, //3
+			-0.4f, 0.2f, 1.0f, 0.0f, 0.0f, //0
+			-0.32f, 0.2f, 1.0f, 0.0f, 0.0f, //1
+ 			-0.4f, 0.6f, 1.0f, 0.0f, 0.0f, //2
+			-0.32f, 0.6f, 1.0f, 0.f, 0.0f, //3
 
 			//R - Oberer Balken
-			-0.5f, 0.6f, 1.0f, 0.0f, 0.0f, //4
-			-0.2f, 0.6f, 0.0f, 1.0f, 0.0f, //5
-			-0.2f, 0.55f, 0.0f, 1.0f, 0.0f, //6
-			-0.5f, 0.55f, 1.0f, 0.0f, 0.0f, //7
+			-0.4f, 0.6f, 1.0f, 0.0f, 0.0f, //4
+			-0.1f, 0.6f, 0.0f, 1.0f, 0.0f, //5
+			-0.1f, 0.55f, 0.0f, 1.0f, 0.0f, //6
+			-0.4f, 0.55f, 1.0f, 0.0f, 0.0f, //7
 
-			//R - rechter vertikaler Balken (rundung)
-			-0.2f, 0.55f, 0.0f, 1.0f, 0.0f, // 8
-			-0.15f, 0.55f, 0.0f, 1.0f, 0.0f, // 9
-			-0.15f, 0.4f, 0.0f, 0.0f, 1.0f, // 10
-			-0.2f,  0.4f, 0.0f, 0.0f, 1.0f // 11
+			-0.1f, 0.55f, 0.0f, 1.0f, 0.0f, //8
+			-0.2f, 0.55f, 0.0f, 1.0f, 0.0f, //9
+			-0.32f, 0.4f, 0.0f, 0.0f, 1.0f, // 10
+
+			-0.1f, 0.2f, 0.3f, 0.6f, 0.7f, //11
+			-0.2f, 0.2f, 0.3f, 0.6f, 0.7f, //12
+
+			//N - erster Balken
+			0.1f, 0.2f, 1.0f, 0.0f, 1.0f, //13
+			0.175f, 0.2f, 1.0f, 0.0f, 1.0f, //14
+			0.1f, 0.6f, 0.0f, 1.0f, 1.0f, //15
+			0.175f, 0.6f, 0.0f, 1.0f, 1.0f, //16
+
+			//N - zweiter Balken (Schräge)
+			0.4f, 0.2f, 1.0f, 1.0f, 0.0f, // 17
+			0.3f, 0.2f, 1.0f, 1.0f, 0.0f, //18
+			0.225f, 0.6f, 0.0f, 1.0f, 1.0f, // 19
+
+			//N - dritter Balken (zweite Senkrechte)
+			0.475f, 0.6f, 1.0f, 0.4f, 0.0f, // 20
+			0.4f, 0.6f, 1.0f, 0.4f, 0.0f, //21
+			0.475f, 0.2f, 1.0f, 1.0f, 0.0f //22
 			};
 
 		int indices[] = {0, 1, 2, 3, 1, 2,
 						 4, 5, 6, 6, 7, 4,
-						 8, 10, 9, 8, 10, 11
+						 8, 9, 10,
+						 10, 11, 12,
+						 13, 14, 15,
+						 16, 15, 14,
+						 16, 18, 17,
+						 16, 17, 19,
+						 17,21, 20,
+						 20, 17, 22
 						};
 
 		//my code
@@ -70,7 +94,7 @@ bool Scene::init()
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 
-		glDisable(GL_CULL_FACE);
+		//glDisable(GL_CULL_FACE);
 		std::cout << "Scene initialization done\n";
 		return true;
 	}
@@ -86,7 +110,7 @@ void Scene::render(float dt)
 	//my code
 	m_shader->use();
 	glBindVertexArray(m_vao);
-	glDrawElements(GL_TRIANGLES, 28, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 
 
