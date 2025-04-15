@@ -94,8 +94,10 @@ bool Scene::init()
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 
-		//glDisable(GL_CULL_FACE);
-		std::cout << "Scene initialization done\n";
+		//glEnable(GL_CULL_FACE);
+		//glFrontFace(GL_CCW);
+		//glCullFace(GL_BACK);
+		//<std::cout << "Scene initialization done\n";
 		return true;
 	}
 	catch (std::exception& ex)
