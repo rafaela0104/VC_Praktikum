@@ -97,7 +97,7 @@ bool Scene::init()
 		glBindVertexArray(0);
 
 		//1.4
-		// Alle Dreiecke die im Uhrzeigersinn sind werden nicht angezeigt -> gegen den Uhrzeigersinn aufschreiben
+		// Alle Dreiecke die im Uhrzeigersinn sind werden nicht angezeigt -> entweder Dreiecke gegen den Uhrzeiger erstellen oder erlauben das Dreiecke gerendert werden dürfen, wenn die im Uhrzeigersinn sind
 		glEnable(GL_CULL_FACE);
 		glFrontFace(GL_CCW);
 		glCullFace(GL_BACK);
