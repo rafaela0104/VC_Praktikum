@@ -56,15 +56,17 @@ bool Scene::init()
 			0.475f, 0.2f, 1.0f, 1.0f, 0.0f //22
 			};
 
-		int indices[] = {0, 1, 2, 3, 1, 2,
-						 4, 5, 6, 6, 7, 4,
+		int indices[] = {0, 1, 2,
+						 3, 2, 1,
+						 6, 5, 4,
+						 7, 6, 4,
 						 8, 9, 10,
-						 10, 11, 12,
+						 12, 11, 10,
 						 13, 14, 15,
 						 16, 15, 14,
 						 16, 18, 17,
 						 16, 17, 19,
-						 17,21, 20,
+						 17, 20, 21,
 						 20, 17, 22
 						};
 
@@ -94,10 +96,12 @@ bool Scene::init()
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 
-		//glEnable(GL_CULL_FACE);
-		//glFrontFace(GL_CCW);
-		//glCullFace(GL_BACK);
-		//<std::cout << "Scene initialization done\n";
+		//1.4
+		// Alle Dreiecke die im Uhrzeigersinn sind werden nicht angezeigt -> gegen den Uhrzeigersinn aufschreiben
+		glEnable(GL_CULL_FACE);
+		glFrontFace(GL_CCW);
+		glCullFace(GL_BACK);
+		std::cout << "Scene initialization done\n";
 		return true;
 	}
 	catch (std::exception& ex)
