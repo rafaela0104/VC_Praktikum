@@ -19,78 +19,49 @@ bool Scene::init()
 		m_shader = m_assets.getShaderProgram("shader");
 		m_shader->use();
 
-		float vertices[] = {
-			//R - Linker Balken
-			-0.4f, 0.2f, 1.0f, 0.0f, 0.0f, //0
-			-0.32f, 0.2f, 1.0f, 0.0f, 0.0f, //1
- 			-0.4f, 0.6f, 0.0f, 1.0f, 0.4f, //2
-			-0.32f, 0.6f, 0.0f, 1.0f, 0.4f, //3
+		static const float cubeVert[] =  {0.5, -0.5, -0.5, 1, 0, 0,
+								  0.5, -0.5, 0.5, 0, 1, 0,
+								  -0.5, -0.5, 0.5, 0, 0, 1,
+								  -0.5, -0.5, -0.5, 1, 1, 0,
+								  0.5, 0.5, -0.5, 1, 0, 1,
+								  0.5, 0.5, 0.5, 0, 1, 1,
+								  -0.5, 0.5, 0.5, 1, 1, 1,
+								  -0.5, 0.5, -0.5, 0.5, 1, 0.5};
 
-			//R - Oberer Balken
-			-0.4f, 0.6f, 0.0f, 1.0f, 0.0f, //4
-			-0.1f, 0.6f, 0.0f, 1.0f, 0.0f, //5
-			-0.1f, 0.55f, 0.0f, 1.0f, 0.0f, //6
-			-0.4f, 0.55f, 0.0f, 1.0f, 0.0f, //7
-
-			-0.1f, 0.55f, 0.0f, 1.0f, 0.0f, //8
-			-0.2f, 0.55f, 0.0f, 1.0f, 0.0f, //9
-			-0.32f, 0.4f, 0.0f, 0.0f, 1.0f, // 10
-
-			-0.1f, 0.2f, 0.3f, 0.6f, 0.7f, //11
-			-0.2f, 0.2f, 0.3f, 0.6f, 0.7f, //12
-
-			//N - erster Balken
-			0.1f, 0.2f, 1.0f, 0.0f, 1.0f, //13
-			0.175f, 0.2f, 1.0f, 0.0f, 1.0f, //14
-			0.1f, 0.6f, 0.0f, 1.0f, 1.0f, //15
-			0.175f, 0.6f, 0.0f, 1.0f, 1.0f, //16
-
-			//N - zweiter Balken (Schräge)
-			0.4f, 0.2f, 1.0f, 1.0f, 0.0f, // 17
-			0.3f, 0.2f, 1.0f, 1.0f, 0.0f, //18
-			0.225f, 0.6f, 0.0f, 1.0f, 1.0f, // 19
-
-			//N - dritter Balken (zweite Senkrechte)
-			0.475f, 0.6f, 1.0f, 0.4f, 0.0f, // 20
-			0.4f, 0.6f, 1.0f, 0.4f, 0.0f, //21
-			0.475f, 0.2f, 1.0f, 1.0f, 0.0f //22
-			};
-
-		int indices[] = {0, 1, 2,
-						 3, 2, 1,
-						 6, 5, 4,
-						 7, 6, 4,
-						 8, 9, 10,
-						 12, 11, 10,
-						 13, 14, 15,
-						 16, 15, 14,
-						 16, 18, 17,
-						 16, 17, 19,
-						 17, 20, 21,
-						 20, 17, 22
-						};
+		static const int cubeInd[] = {1, 2, 3,
+									  7, 6, 5,
+									  4, 5, 1,
+									  5, 6, 2,
+									  2, 6, 7,
+									  0, 3, 7,
+									  0, 1, 3,
+									  4, 7, 5,
+									  0, 4, 1,
+									  1, 5, 2,
+									  3, 2, 7,
+									  4, 0, 7};
 
 		//my code
 		//1a VBO erzeugen und binden
 		glGenBuffers(1, &m_vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVert), cubeVert, GL_STATIC_DRAW);
 
 		//1b VAO erzeugen und binden
 		glGenVertexArrays(1, &m_vao);
 		glBindVertexArray(m_vao);
 
 		//1c VAO und VBO aktivieren
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(2 * sizeof(float)));
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 
 		//1d IBO erstellen und binden
 		glGenBuffers(1, &m_vio);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vio);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubeInd), cubeInd, GL_STATIC_DRAW);
 
 		//1e
 		glBindBuffer(GL_ARRAY_BUFFER, 0);

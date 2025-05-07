@@ -7,18 +7,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   CMake that the project does not need compatibility with older versions.
 
 
--- The C compiler identification is GNU 14.2.1
--- The CXX compiler identification is GNU 14.2.1
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Detecting CXX compiler ABI info
--- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: /usr/bin/c++ - skipped
--- Detecting CXX compile features
--- Detecting CXX compile features - done
 CMake Deprecation Warning at libs/CMakeLists.txt:1 (cmake_minimum_required):
   Compatibility with CMake < 3.5 will be removed from a future version of
   CMake.
@@ -63,24 +51,7 @@ CMake Deprecation Warning at libs/glfw-3.2.1/CMakeLists.txt:10 (cmake_policy):
   behavior and not rely on setting a policy to OLD.
 
 
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
--- Found Threads: TRUE
--- Found Vulkan: /lib/libvulkan.so
 -- Using X11 for window creation
--- Found X11: /usr/include
--- Looking for XOpenDisplay in /usr/lib/libX11.so;/usr/lib/libXext.so
--- Looking for XOpenDisplay in /usr/lib/libX11.so;/usr/lib/libXext.so - found
--- Looking for gethostbyname
--- Looking for gethostbyname - found
--- Looking for connect
--- Looking for connect - found
--- Looking for remove
--- Looking for remove - found
--- Looking for shmat
--- Looking for shmat - found
--- Looking for IceConnectionNumber in ICE
--- Looking for IceConnectionNumber in ICE - found
 CMake Deprecation Warning at libs/glew-2.1.0/build/cmake/CMakeLists.txt:7 (cmake_minimum_required):
   Compatibility with CMake < 3.5 will be removed from a future version of
   CMake.
@@ -109,7 +80,6 @@ Call Stack (most recent call first):
   libs/glew-2.1.0/build/cmake/CMakeLists.txt:40 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
--- Found OpenGL: /usr/lib/libOpenGL.so
 CMake Warning (dev) at /home/rafaela/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/FindOpenGL.cmake:415 (message):
   Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
   available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
@@ -138,6 +108,6 @@ CMake Deprecation Warning at libs/stb/CMakeLists.txt:1 (cmake_minimum_required):
   CMake that the project does not need compatibility with older versions.
 
 
--- Configuring done (1.7s)
+-- Configuring done (0.1s)
 -- Generating done (0.1s)
 -- Build files have been written to: /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
