@@ -4,7 +4,7 @@
 #include <ShaderProgram.h>
 #include <memory>
 #include <AssetManager.h>
-#include "Transform.h"
+#include "Framework/SceneElements/Transform.h"
 
 class Scene
 {
@@ -28,6 +28,7 @@ private:
 	OpenGLWindow* m_window;
 	AssetManager m_assets;
 	ShaderProgram* m_shader;
+	std::shared_ptr<Transform> m_cubeTransform;
 	GLuint vaoID, vboID;
 	GLuint m_vao = 0, m_vbo = 0, m_vio = 0;
 

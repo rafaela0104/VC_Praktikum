@@ -72,6 +72,10 @@ bool Scene::init()
 		glEnable(GL_CULL_FACE);
 		glFrontFace(GL_CCW);
 		glCullFace(GL_BACK);
+
+		//2.2
+		m_cubeTransform =  std::make_shared<Transform>();
+		m_cubeTransform->rotate(glm::vec3(glm::radians(45.0f), glm::radians(45.0f),0.0f));
 		std::cout << "Scene initialization done\n";
 		return true;
 	}
@@ -88,6 +92,7 @@ void Scene::render(float dt)
 	m_shader->use();
 	glBindVertexArray(m_vao);
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	m_shader->setUniform("modelMatrix", m_cubeTransform->getMatrix(), false);
 
 
 
