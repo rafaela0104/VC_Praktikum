@@ -210,6 +210,7 @@ void Transform::rotateAroundPoint(const glm::vec3 point, const glm::quat &deltaR
     mm = glm::translate(point) *mm;
     setMatrix(mm);
 
+
     /*
     glm::mat4x4 mm = t.getMatrix();
     mm = mm* glm::translate(glm::vec3(0, -0.5, 0));
@@ -218,3 +219,22 @@ void Transform::rotateAroundPoint(const glm::vec3 point, const glm::quat &deltaR
     t.setMatrix(mm);
 */
 }
+
+void Transform::addChild(std::shared_ptr<Transform> child)
+{
+	if (child) {
+		child->m_parent = this;
+		m_children.push_back(child);
+	}
+}
+
+const std::vector<std::shared_ptr<Transform>>& Transform::getChildren() const
+{
+	return m_children;
+}
+
+Transform* Transform::getParent() const
+{
+	return m_parent;
+}
+

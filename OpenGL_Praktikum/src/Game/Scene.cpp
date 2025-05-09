@@ -1,6 +1,8 @@
 #include "Scene.h"
 #include <AssetManager.h>
 
+float rightArmRotationAngle = 0.0f;
+
 Scene::Scene(OpenGLWindow * window) :
 	m_window(window)
 {
@@ -76,6 +78,49 @@ bool Scene::init()
 		//2.2
 		m_cubeTransform =  std::make_shared<Transform>();
 		m_cubeTransform->rotate(glm::vec3(glm::radians(45.0f), glm::radians(45.0f),0.0f));
+
+		m_root = std::make_shared<Transform>();
+		m_root->translate(glm::vec3(0.0f, 0.0f, 0.0f));
+
+		m_torso = std::make_shared<Transform>();
+		m_torso->translate(glm::vec3(0.0f, 0.0f, 0.0f));
+
+		m_head = std::make_shared<Transform>();
+		m_head->translate(glm::vec3(0.0f, 1.25f, 0.0f));
+		m_head->scale(glm::vec3(0.5f));
+
+		m_leftUpperArm = std::make_shared<Transform>();
+		m_leftUpperArm->translate(glm::vec3(-0.75f, 0.75, 0.0f));
+		m_leftLowerArm = std::make_shared<Transform>();
+		m_leftLowerArm->translate(glm::vec3(0.0f, -0.75, 0.0f));
+		m_leftUpperArm->scale(glm::vec3(0.6f));
+
+		m_rightUpperArm = std::make_shared<Transform>();
+		m_rightUpperArm->translate(glm::vec3(0.75f, 0.75, 0.0f));
+		m_rightLowerArm = std::make_shared<Transform>();
+		m_rightLowerArm->translate(glm::vec3(0.0f, -0.75, 0.0f));
+		m_rightUpperArm->scale(glm::vec3(0.6f));
+
+		m_leftLeg = std::make_shared<Transform>();
+		m_leftLeg->translate(glm::vec3(-0.3f, -1.0, 0.0f));
+		m_rightLeg = std::make_shared<Transform>();
+		m_rightLeg->translate(glm::vec3(0.3f, -1.0, 0.0f));
+
+		m_root->addChild(m_torso);
+		m_torso->addChild(m_head);
+
+		m_torso->addChild(m_leftUpperArm);
+		m_torso->addChild(m_leftLowerArm);
+
+		m_torso->addChild(m_rightUpperArm);
+		m_torso->addChild(m_rightLowerArm);
+
+		m_torso->addChild(m_leftLeg);
+		m_torso->addChild(m_rightLeg);
+
+		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_GREATER);
+		glClearDepth(0.0f);
 		std::cout << "Scene initialization done\n";
 		return true;
 	}
@@ -90,14 +135,31 @@ void Scene::render(float dt)
 
 	//my code
 	m_shader->use();
-	glBindVertexArray(m_vao);
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+
 	m_shader->setUniform("modelMatrix", m_cubeTransform->getMatrix(), false);
 
+	glBindVertexArray(m_vao);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	m_rightUpperArm->setRotation(glm::vec3(0.0f, 0.0f, glm::radians(rightArmRotationAngle)));
 
+	renderNode(m_root, glm::mat4(1.0f));
+}
 
+void Scene::renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentMatrix)
+{
+	glm::mat4 model = parentMatrix * node->getMatrix();
+	m_shader->setUniform("modelMatrix", model, false);
 
+	glBindVertexArray(m_vao);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+
+	for (auto& child : node->getChildren())
+	{
+		renderNode(child, model);
+	}
 }
 
 void Scene::update(float dt)
@@ -112,7 +174,16 @@ OpenGLWindow * Scene::getWindow()
 
 void Scene::onKey(Key key, Action action, Modifier modifier)
 {
-
+	if (action == Action::Down || action == Action::Repeat)
+	{
+		if (key == Key::A)
+		{
+			rightArmRotationAngle += 5.0f;
+		}else if (key == Key::D)
+		{
+			rightArmRotationAngle -= 5.0f;
+		}
+	}
 }
 
 void Scene::onMouseMove(MousePosition mouseposition)

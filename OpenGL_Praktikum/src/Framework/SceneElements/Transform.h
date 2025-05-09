@@ -1,6 +1,8 @@
 #ifndef _TRANSFORM_H_
 #define _TRANSFORM_H_
 #include <libheaders.h>
+#include <memory>
+#include <vector>
 
 class Transform
 {
@@ -15,6 +17,9 @@ private:
 	glm::vec3 m_xaxis;
 	glm::vec3 m_yaxis;
 	glm::vec3 m_zaxis;
+
+	std::vector<std::shared_ptr<Transform>> m_children;
+	Transform* m_parent = nullptr;
 
 	void updateTransformMatrix();
 
@@ -45,6 +50,12 @@ public:
 	void rotate(const glm::quat& deltaRot);
 	void rotateLocal(const glm::quat& deltaRot);
 	void rotateAroundPoint(const glm::vec3 point, const glm::quat& deltaRot);
+
+	void addChild(std::shared_ptr<Transform> child);
+	const std::vector<std::shared_ptr<Transform>>& getChildren() const;
+	Transform* getParent() const;
+
+	glm::mat4 getWorldMatrix();
 
 	void scale(const glm::vec3& scale);
 
