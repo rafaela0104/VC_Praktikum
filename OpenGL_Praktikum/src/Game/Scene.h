@@ -43,5 +43,12 @@ private:
 	std::shared_ptr<Transform> m_leftLeg;
 	std::shared_ptr<Transform> m_rightLeg;
 
+	float m_leftLegAngle = 0.0f;
+	float m_rightLegAngle = 0.0f;
+	float m_leftUpperArmAngle = 0.0f;
+	float m_rightUpperArmAngle = 0.0f;
+	float m_leftLowerArmAngle = 0.0f;
+	float m_rightLowerArmAngle = 0.0f;
+
 };
 

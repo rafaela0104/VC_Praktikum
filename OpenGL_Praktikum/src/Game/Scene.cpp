@@ -1,8 +1,6 @@
 #include "Scene.h"
 #include <AssetManager.h>
 
-float rightArmRotationAngle = 0.0f;
-
 Scene::Scene(OpenGLWindow * window) :
 	m_window(window)
 {
@@ -132,21 +130,24 @@ bool Scene::init()
 
 void Scene::render(float dt)
 {
-
-	//my code
 	m_shader->use();
 
-	m_shader->setUniform("modelMatrix", m_cubeTransform->getMatrix(), false);
+	float time = glfwGetTime();
+	m_shader->setUniform("time", time);
+
+	// Setzen der Modellmatrix für die Drehung der Szene
+	glm::mat4 viewMatrix = glm::rotate(glm::mat4(1.0f), glm::radians(45.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // Beispiel einer Drehung um die Y-Achse
+	m_shader->setUniform("modelMatrix", viewMatrix * m_cubeTransform->getMatrix(), false);
 
 	glBindVertexArray(m_vao);
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	m_rightUpperArm->setRotation(glm::vec3(0.0f, 0.0f, glm::radians(rightArmRotationAngle)));
 
-	renderNode(m_root, glm::mat4(1.0f));
+	renderNode(m_root, glm::mat4(1.0f)); // Rendern der Szene mit der geänderten Weltmatrix
 }
+
 
 void Scene::renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentMatrix)
 {
@@ -164,6 +165,20 @@ void Scene::renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentM
 
 void Scene::update(float dt)
 {
+	float walkSpeed = glm::radians(20.0f) * sin(glfwGetTime());
+
+	//Beine schwingen
+	m_leftLeg->rotateAroundPoint(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(walkSpeed, 0.0f, 0.0f));
+	m_rightLeg->rotateAroundPoint(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(-walkSpeed, 0.0f, 0.0f));
+
+	//Arme schwingen
+	m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), glm::vec3(-walkSpeed, 0.0f, 0.0f));
+	m_rightUpperArm->rotateAroundPoint((glm::vec3(0.0f, 0.5f, 0.0f)), glm::vec3(walkSpeed, 0.0f, 0.0f));
+
+	//Unterarme mit fixierter Rotation
+	m_leftLowerArm->rotate(glm::vec3(glm::radians(10.0f), 0.0f, 0.0f));
+	m_rightLowerArm->rotate(glm::vec3(glm::radians(-10.0f), 0.0f, 0.0f));
+
 
 }
 
@@ -174,16 +189,7 @@ OpenGLWindow * Scene::getWindow()
 
 void Scene::onKey(Key key, Action action, Modifier modifier)
 {
-	if (action == Action::Down || action == Action::Repeat)
-	{
-		if (key == Key::A)
-		{
-			rightArmRotationAngle += 5.0f;
-		}else if (key == Key::D)
-		{
-			rightArmRotationAngle -= 5.0f;
-		}
-	}
+
 }
 
 void Scene::onMouseMove(MousePosition mouseposition)
