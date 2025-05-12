@@ -202,6 +202,23 @@ glm::mat4 Transform::getInverseMatrix()
 Transform::~Transform()
 {}
 
+void Transform::addChild(std::shared_ptr<Transform> child)
+{
+	if (child) {
+		child->m_parent = this;
+		m_children.push_back(child);
+	}
+}
+
+const std::vector<std::shared_ptr<Transform>>& Transform::getChildren() const
+{
+	return m_children;
+}
+
+Transform* Transform::getParent() const
+{
+	return m_parent;
+}
 void Transform::rotateAroundPoint(const glm::vec3 point, const glm::quat &deltaRot) {
 
     glm::mat4x4 mm = getMatrix();

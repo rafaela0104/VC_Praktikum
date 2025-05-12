@@ -15,6 +15,7 @@ public:
 	bool init();
 	void shutdown();
 	void render(float dt);
+	void renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentMatrix);
 	void update(float dt);
 	OpenGLWindow* getWindow();
 
@@ -32,7 +33,6 @@ private:
 	GLuint vaoID, vboID;
 	GLuint m_vao = 0, m_vbo = 0, m_vio = 0;
 
-<<<<<<< HEAD
 	std::shared_ptr<Transform> m_root;
 	std::shared_ptr<Transform> m_torso;
 	std::shared_ptr<Transform> m_head;
@@ -43,14 +43,4 @@ private:
 	std::shared_ptr<Transform> m_leftLeg;
 	std::shared_ptr<Transform> m_rightLeg;
 
-	float m_leftLegAngle = 0.0f;
-	float m_rightLegAngle = 0.0f;
-	float m_leftUpperArmAngle = 0.0f;
-	float m_rightUpperArmAngle = 0.0f;
-	float m_leftLowerArmAngle = 0.0f;
-	float m_rightLowerArmAngle = 0.0f;
-
-=======
->>>>>>> parent of cda5001 (right arm is rotating)
 };
-
