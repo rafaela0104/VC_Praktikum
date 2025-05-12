@@ -4,7 +4,12 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <GLFW/glfw3.h>
 
+<<<<<<< HEAD
 Scene::Scene(OpenGLWindow* window) : m_window(window)
+=======
+Scene::Scene(OpenGLWindow * window) :
+	m_window(window)
+>>>>>>> parent of cda5001 (right arm is rotating)
 {
 	assert(window != nullptr);
 }
@@ -66,6 +71,7 @@ bool Scene::init()
 		glFrontFace(GL_CCW);
 		glCullFace(GL_BACK);
 
+<<<<<<< HEAD
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_GREATER);
 		glClearDepth(0.0f);
@@ -102,6 +108,11 @@ bool Scene::init()
 		m_torso->addChild(m_leftLeg);
 		m_torso->addChild(m_rightLeg);
 
+=======
+		//2.2
+		m_cubeTransform =  std::make_shared<Transform>();
+		m_cubeTransform->rotate(glm::vec3(glm::radians(45.0f), glm::radians(45.0f),0.0f));
+>>>>>>> parent of cda5001 (right arm is rotating)
 		std::cout << "Scene initialization done\n";
 		return true;
 	}
@@ -113,6 +124,7 @@ bool Scene::init()
 void Scene::render(float dt)
 {
 	m_shader->use();
+<<<<<<< HEAD
 
 	float time = glfwGetTime();
 	m_shader->setUniform("time", time);
@@ -125,21 +137,25 @@ void Scene::render(float dt)
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+=======
+	glBindVertexArray(m_vao);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	m_shader->setUniform("modelMatrix", m_cubeTransform->getMatrix(), false);
 
-	renderNode(m_root, glm::mat4(1.0f));
-}
 
-void Scene::renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentMatrix)
-{
-	glm::mat4 model = parentMatrix * node->getMatrix();
-	m_shader->setUniform("modelMatrix", model, false);
+>>>>>>> parent of cda5001 (right arm is rotating)
 
+
+
+<<<<<<< HEAD
 	glBindVertexArray(m_vao);
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
 	for (auto& child : node->getChildren()) {
 		renderNode(child, model);
 	}
+=======
+>>>>>>> parent of cda5001 (right arm is rotating)
 }
 
 void Scene::update(float dt)
@@ -154,6 +170,7 @@ void Scene::update(float dt)
 	m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), glm::vec3(walkSpeed, 0.0f, 0.0f));
 }
 
+<<<<<<< HEAD
 OpenGLWindow* Scene::getWindow() { return m_window; }
 void Scene::onKey(Key key, Action action, Modifier modifier) {}
 void Scene::onMouseMove(MousePosition mouseposition) {}
@@ -161,3 +178,38 @@ void Scene::onMouseButton(MouseButton button, Action action, Modifier modifier) 
 void Scene::onMouseScroll(double xscroll, double yscroll) {}
 void Scene::onFrameBufferResize(int width, int height) {}
 void Scene::shutdown() {}
+=======
+OpenGLWindow * Scene::getWindow()
+{
+	return m_window;
+}
+
+void Scene::onKey(Key key, Action action, Modifier modifier)
+{
+
+}
+
+void Scene::onMouseMove(MousePosition mouseposition)
+{
+
+}
+
+void Scene::onMouseButton(MouseButton button, Action action, Modifier modifier)
+{
+
+}
+
+void Scene::onMouseScroll(double xscroll, double yscroll)
+{
+
+}
+
+void Scene::onFrameBufferResize(int width, int height)
+{
+
+}
+void Scene::shutdown()
+{
+
+}
+>>>>>>> parent of cda5001 (right arm is rotating)
