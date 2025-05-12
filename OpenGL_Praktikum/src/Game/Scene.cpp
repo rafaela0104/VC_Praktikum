@@ -1,34 +1,35 @@
 #include "Scene.h"
 #include <AssetManager.h>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <GLFW/glfw3.h>
 
-Scene::Scene(OpenGLWindow * window) :
-	m_window(window)
+Scene::Scene(OpenGLWindow* window) : m_window(window)
 {
 	assert(window != nullptr);
 }
 
-Scene::~Scene()
-{}
+Scene::~Scene() {}
 
 bool Scene::init()
 {
-	try
-	{
+	try {
 		// Shader laden
 		m_assets.addShaderProgram("shader", AssetManager::createShaderProgram("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl"));
 		m_shader = m_assets.getShaderProgram("shader");
 		m_shader->use();
 
 		// Cube-Daten
-		static const float cubeVert[] =  {
-			0.5, -0.5, -0.5, 1, 0, 0,
-			0.5, -0.5,  0.5, 0, 1, 0,
-		   -0.5, -0.5,  0.5, 0, 0, 1,
-		   -0.5, -0.5, -0.5, 1, 1, 0,
-			0.5,  0.5, -0.5, 1, 0, 1,
-			0.5,  0.5,  0.5, 0, 1, 1,
-		   -0.5,  0.5,  0.5, 1, 1, 1,
-		   -0.5,  0.5, -0.5, 0.5, 1, 0.5
+		static const float cubeVert[] = {
+			// Position        // Farbe
+			 0.5, -0.5, -0.5, 1, 0, 0,
+			 0.5, -0.5,  0.5, 0, 1, 0,
+			-0.5, -0.5,  0.5, 0, 0, 1,
+			-0.5, -0.5, -0.5, 1, 1, 0,
+			 0.5,  0.5, -0.5, 1, 0, 1,
+			 0.5,  0.5,  0.5, 0, 1, 1,
+			-0.5,  0.5,  0.5, 1, 1, 1,
+			-0.5,  0.5, -0.5, 0.5, 1, 0.5
 		};
 
 		static const int cubeInd[] = {
@@ -51,7 +52,6 @@ bool Scene::init()
 
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 
@@ -60,66 +60,52 @@ bool Scene::init()
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vio);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubeInd), cubeInd, GL_STATIC_DRAW);
 
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);
 
-		// Culling aktivieren
 		glEnable(GL_CULL_FACE);
 		glFrontFace(GL_CCW);
 		glCullFace(GL_BACK);
 
-		// Tiefentest aktivieren
 		glEnable(GL_DEPTH_TEST);
 		glDepthFunc(GL_GREATER);
 		glClearDepth(0.0f);
 
-		// Root-Nodes & Transform-Hierarchie
-		m_cubeTransform = std::make_shared<Transform>();
-		m_cubeTransform->rotate(glm::vec3(glm::radians(45.0f), glm::radians(45.0f), 0.0f)); // nicht mehr genutzt in render()
-
+		// Transformations-Hierarchie
 		m_root = std::make_shared<Transform>();
-		m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));  // <-- WICHTIG: Figur seitlich zeigen!
+		m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f)); // Figur seitlich
 
 		m_torso = std::make_shared<Transform>();
-		m_torso->translate(glm::vec3(0.0f, 0.0f, 0.0f));
-
-		m_head = std::make_shared<Transform>();
-		m_head->translate(glm::vec3(0.0f, 1.25f, 0.0f));
-		m_head->scale(glm::vec3(0.5f));
+		m_torso->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));
+		/*m_head = std::make_shared<Transform>();
+		m_head->translate(glm::vec3(0.0f, 1.5f, 0.0f));
+		m_head->scale(glm::vec3(0.6f));
 
 		m_leftUpperArm = std::make_shared<Transform>();
-		m_leftUpperArm->translate(glm::vec3(-0.75f, 0.75, 0.0f));
+		m_leftUpperArm->translate(glm::vec3(-0.75f, 0.75f, 0.0f));
 		m_leftUpperArm->scale(glm::vec3(0.6f));
 
-		m_leftLowerArm = std::make_shared<Transform>();
-		m_leftLowerArm->translate(glm::vec3(0.0f, -0.75, 0.0f));
-
 		m_rightUpperArm = std::make_shared<Transform>();
-		m_rightUpperArm->translate(glm::vec3(0.75f, 0.75, 0.0f));
+		m_rightUpperArm->translate(glm::vec3(0.75f, 0.75f, 0.0f));
 		m_rightUpperArm->scale(glm::vec3(0.6f));
 
-		m_rightLowerArm = std::make_shared<Transform>();
-		m_rightLowerArm->translate(glm::vec3(0.0f, -0.75, 0.0f));
-
 		m_leftLeg = std::make_shared<Transform>();
-		m_leftLeg->translate(glm::vec3(-0.3f, -1.0, 0.0f));
-		m_rightLeg = std::make_shared<Transform>();
-		m_rightLeg->translate(glm::vec3(0.3f, -1.0, 0.0f));
+		m_leftLeg->translate(glm::vec3(-0.3f, -1.0f, 0.0f));
 
+		m_rightLeg = std::make_shared<Transform>();
+		m_rightLeg->translate(glm::vec3(0.3f, -1.0f, 0.0f));*/
+
+		// Hierarchie aufbauen
 		m_root->addChild(m_torso);
 		m_torso->addChild(m_head);
 		m_torso->addChild(m_leftUpperArm);
-		m_torso->addChild(m_leftLowerArm);
 		m_torso->addChild(m_rightUpperArm);
-		m_torso->addChild(m_rightLowerArm);
 		m_torso->addChild(m_leftLeg);
 		m_torso->addChild(m_rightLeg);
 
 		std::cout << "Scene initialization done\n";
 		return true;
 	}
-	catch (std::exception& ex)
-	{
+	catch (std::exception& ex) {
 		throw std::logic_error("Scene initialization failed:\n" + std::string(ex.what()) + "\n");
 	}
 }
@@ -127,14 +113,19 @@ bool Scene::init()
 void Scene::render(float dt)
 {
 	m_shader->use();
+
 	float time = glfwGetTime();
 	m_shader->setUniform("time", time);
 
-	// Bildschirm löschen
+	// Kamera-View und Projektions-Matrix
+	glm::mat4 view = glm::lookAt(glm::vec3(0, 1, 5), glm::vec3(0, 1, 0), glm::vec3(0, 1, 0));
+	glm::mat4 proj = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
+	m_shader->setUniform("viewMatrix", view, false);
+	m_shader->setUniform("projMatrix", proj, false);
+
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// Root ohne zusätzliche Rotation rendern (Rotation ist bereits in m_root enthalten)
 	renderNode(m_root, glm::mat4(1.0f));
 }
 
@@ -146,8 +137,7 @@ void Scene::renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentM
 	glBindVertexArray(m_vao);
 	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 
-	for (auto& child : node->getChildren())
-	{
+	for (auto& child : node->getChildren()) {
 		renderNode(child, model);
 	}
 }
@@ -156,17 +146,12 @@ void Scene::update(float dt)
 {
 	float walkSpeed = glm::radians(20.0f) * sin(glfwGetTime());
 
-	// Beine schwingen
+	
 	m_leftLeg->rotateAroundPoint(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(walkSpeed, 0.0f, 0.0f));
 	m_rightLeg->rotateAroundPoint(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(-walkSpeed, 0.0f, 0.0f));
 
-	// Arme schwingen
 	m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), glm::vec3(-walkSpeed, 0.0f, 0.0f));
 	m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), glm::vec3(walkSpeed, 0.0f, 0.0f));
-
-	// Unterarme leicht angewinkelt
-	m_leftLowerArm->rotate(glm::vec3(glm::radians(10.0f), 0.0f, 0.0f));
-	m_rightLowerArm->rotate(glm::vec3(glm::radians(-10.0f), 0.0f, 0.0f));
 }
 
 OpenGLWindow* Scene::getWindow() { return m_window; }
