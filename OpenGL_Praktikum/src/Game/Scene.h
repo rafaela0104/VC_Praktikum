@@ -35,7 +35,7 @@ private:
 
 	std::shared_ptr<Transform> m_root;
 	std::shared_ptr<Transform> m_torso;
-	std::shared_ptr<Transform> m_head;
+	// std::shared_ptr<Transform> m_head;
 	std::shared_ptr<Transform> m_leftUpperArm;
 	std::shared_ptr<Transform> m_rightUpperArm;
 	std::shared_ptr<Transform> m_leftLowerArm;
