@@ -76,27 +76,27 @@ bool Scene::init()
 		//m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));
 
 		m_torso = std::make_shared<Transform>();
-		m_torso->translate(glm::vec3(0.0f, -2.75f, 1.0f));
+		m_torso->translate(glm::vec3(0.0f, -2.75f, 0.5f));
 		m_torso->scale(glm::vec3(2.0f, 4.0f, 1.0f));
 
 		m_leftUpperArm = std::make_shared<Transform>();
-		m_leftUpperArm->translate(glm::vec3(-0.65f, 0.3f, 1.0f));
+		m_leftUpperArm->translate(glm::vec3(-0.65f, 0.3f, 0.5f));
 		m_leftUpperArm->scale(glm::vec3(0.25f, 0.4f, 1.0f));
 
 		m_leftLowerArm = std::make_shared<Transform>();
-		m_leftLowerArm->translate(glm::vec3(-0.65, -0.05f, 1.0f));
+		m_leftLowerArm->translate(glm::vec3(-0.65, -0.05f, 0.5f));
 		m_leftLowerArm->scale(glm::vec3(0.25f, 0.3f, 1.0f));
 
 		m_rightUpperArm = std::make_shared<Transform>();
-		m_rightUpperArm->translate(glm::vec3(0.65f, 0.3f, 1.0f));
+		m_rightUpperArm->translate(glm::vec3(0.65f, 0.3f, 0.5f));
 		m_rightUpperArm->scale(glm::vec3(0.25f, 0.4f, 1.0f));
 
 		m_rightLowerArm = std::make_shared<Transform>();
-		m_rightLowerArm->translate(glm::vec3(0.65f, -0.05f, 1.0f));
+		m_rightLowerArm->translate(glm::vec3(0.65f, -0.05f, 0.5f));
 		m_rightLowerArm->scale(glm::vec3(0.25f, 0.3f, 1.0f));
 
 		m_leftLeg = std::make_shared<Transform>();
-		m_leftLeg->translate(glm::vec3(-0.25f, -0.7f, 1.0f));
+		m_leftLeg->translate(glm::vec3(-0.25f, -0.7f, 0.5f));
 		m_leftLeg->scale(glm::vec3(0.25f, 0.4f, 1.0f));
 
 		m_rightLeg = std::make_shared<Transform>();
