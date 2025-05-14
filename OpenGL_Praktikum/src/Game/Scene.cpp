@@ -76,39 +76,45 @@ bool Scene::init()
 		//m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));
 
 		m_torso = std::make_shared<Transform>();
-		m_torso->translate(glm::vec3(0.0f, -2.75f, 0.5f));
+		m_torso->translate(glm::vec3(0.0f, -2.75f, 0.0f));
 		m_torso->scale(glm::vec3(2.0f, 4.0f, 1.0f));
 
+		glm::vec3 arm(1.3f, 0.0f, 0.0f);
+
 		m_leftUpperArm = std::make_shared<Transform>();
-		m_leftUpperArm->translate(glm::vec3(-0.65f, 0.3f, 0.5f));
-		m_leftUpperArm->scale(glm::vec3(0.25f, 0.4f, 1.0f));
+		m_leftUpperArm->translate(glm::vec3(-0.65f, 0.5f, 0.5f));
+		m_leftUpperArm->scale(glm::vec3(0.25f, 0.2f, 1.0f));
+		m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.4f, 0.0f), arm);
+
 
 		m_leftLowerArm = std::make_shared<Transform>();
-		m_leftLowerArm->translate(glm::vec3(-0.65, -0.05f, 0.5f));
-		m_leftLowerArm->scale(glm::vec3(0.25f, 0.3f, 1.0f));
+		m_leftLowerArm->translate(glm::vec3(glm::vec3(0.0f, 0.0f, 0.8f)));
+		m_leftLowerArm->scale(glm::vec3(1.0f, 1.0f, 0.5f));
+
 
 		m_rightUpperArm = std::make_shared<Transform>();
 		m_rightUpperArm->translate(glm::vec3(0.65f, 0.3f, 0.5f));
-		m_rightUpperArm->scale(glm::vec3(0.25f, 0.4f, 1.0f));
+		m_rightUpperArm->scale(glm::vec3(0.25f, 0.2f, 1.0f));
+		m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), arm);
 
 		m_rightLowerArm = std::make_shared<Transform>();
-		m_rightLowerArm->translate(glm::vec3(0.65f, -0.05f, 0.5f));
-		m_rightLowerArm->scale(glm::vec3(0.25f, 0.3f, 1.0f));
+		m_rightLowerArm->translate(glm::vec3(0.0f, 0.0f, 0.8f));
+		m_rightLowerArm->scale(glm::vec3(1.0f, 1.0f, 0.5f));
 
 		m_leftLeg = std::make_shared<Transform>();
-		m_leftLeg->translate(glm::vec3(-0.25f, -0.7f, 0.5f));
-		m_leftLeg->scale(glm::vec3(0.25f, 0.4f, 1.0f));
+		m_leftLeg->translate(glm::vec3(-0.25f, -0.7f, 0.0f));
+		m_leftLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
 
 		m_rightLeg = std::make_shared<Transform>();
 		m_rightLeg->translate(glm::vec3(0.25f, -0.7f, 0.0f));
-		m_rightLeg->scale(glm::vec3(0.25f, 0.4f, 1.0f));
+		m_rightLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
 
 		// Struktur aufbauen
 		m_root->addChild(m_torso);
 		m_torso->addChild(m_leftUpperArm);
-		m_torso->addChild(m_leftLowerArm);
+		m_leftUpperArm->addChild(m_leftLowerArm);
 		m_torso->addChild(m_rightUpperArm);
-		m_torso->addChild(m_rightLowerArm);
+		m_rightUpperArm->addChild(m_rightLowerArm);
 		m_torso->addChild(m_leftLeg);
 		m_torso->addChild(m_rightLeg);
 
@@ -153,15 +159,19 @@ void Scene::update(float dt)
 {
 	static float time = 0.0f;
 	time += dt;
+	m_root->rotate(glm::vec3(0.0f, glm::radians(0.5f), 0.0f));
+	float armSwing = glm::radians(15.0f * sinf(time * 2.0f));
+	glm::vec3 arm(0.01 * (sinf(time)), 0, 0);
+	float legSwing = glm::radians(15.0f) * sinf(time * 2.0f);
 
-	float armSwing = glm::radians(15.0f) * sinf(time * 2.0f);
-	float legSwing = glm::radians(15.0f) * sinf(time * 2.0f + glm::pi<float>());
+	//m_leftUpperArm->setRotation(glm::vec3(armSwing, 0.0f, 0.0f)); glm::vec3(0.05f * armSwing, 0.0f, 0.0f)
+	m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), arm);
+	m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), -arm);
+	//m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.05f * (-armSwing), 0.0f, 0.0f));
 
-	m_leftUpperArm->setRotation(glm::vec3(armSwing, 0.0f, 0.0f));
-	m_rightUpperArm->setRotation(glm::vec3(-armSwing, 0.0f, 0.0f));
-
-	m_leftLeg->setRotation(glm::vec3(-legSwing, 0.0f, 0.0f));
-	m_rightLeg->setRotation(glm::vec3(legSwing, 0.0f, 0.0f));
+	m_leftLeg->rotateAroundPoint(glm::vec3(0.25f, 0.0f, 0.0f), glm::vec3(0.05f * legSwing, 0.0f, 0.0f));
+	//m_leftLeg->setRotation(glm::vec3(-legSwing, 0.0f, 0.0f));
+	m_rightLeg->rotateAroundPoint(glm::vec3(-0.25f, 0.0f, 0.0f), glm::vec3(0.05f * (-legSwing), 0.0f, 0.0f));
 }
 
 OpenGLWindow * Scene::getWindow()
