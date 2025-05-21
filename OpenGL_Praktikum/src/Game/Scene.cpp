@@ -67,12 +67,10 @@ bool Scene::init()
 		glFrontFace(GL_CCW);
 		glCullFace(GL_BACK);
 		glEnable(GL_DEPTH_TEST);
-		glDepthFunc(GL_GREATER);
-		glClearDepth(0.0f);
 
 		// Szene aufbauen
 		m_root = std::make_shared<Transform>();
-		m_root->scale(glm::vec3(0.15f)); // <- Szene kleiner skalieren!
+		//m_root->scale(glm::vec3(0.15f)); // <- Szene kleiner skalieren!
 		//m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));
 
 		m_torso = std::make_shared<Transform>();
@@ -135,6 +133,28 @@ void Scene::render(float dt)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	m_shader->use();
+
+	/*fovy zB. glm::radians(90.0f)	Weitwinkel: größere Perspektivverzerrung, mehr vom Raum sichtbar
+	near z.B. 1.0f	Alles näher als 1.0 wird abgeschnitten (Clipping)
+	far z.B. 10.0f	Alles weiter als 10.0 wird nicht gezeichnet
+	aspectRatio	Falsches Seitenverhältnis verzerrt Bild (z.B. gestaucht/gestreckt)*/
+	
+	glm::mat4 view = glm::lookAt(
+		glm::vec3(0.0f, 4.0f, 20.0f), // Kameraposition
+		glm::vec3(0.0f, 0.0f, 0.0f), //Blickpunkt
+		glm::vec3(0.0f, 1.0f, 0.0f) //Up-Vektor
+		);
+
+	//Seitenverhältnis
+	float aspectRatio = static_cast<float>(m_window->getFrameBufferWidth()) / static_cast<float>(m_window->getFrameBufferHeight());
+	glm::mat4 projection = glm::perspective(
+		glm::radians(45.0f),
+		aspectRatio,
+		0.1f,
+		100.0f);
+
+	m_shader->setUniform("viewMatrix", view, false);
+	m_shader->setUniform("projectionMatrix", projection, false);
 
 	// Hier keine Einzelzeichnung mehr nötig – alles passiert im Renderbaum
 	renderNode(m_root, glm::mat4(1.0f));

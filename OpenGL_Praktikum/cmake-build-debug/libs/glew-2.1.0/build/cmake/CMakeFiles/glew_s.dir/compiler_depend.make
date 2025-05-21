@@ -52,11 +52,11 @@ libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.o: /home/rafa
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/types.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdint.h
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stddef.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdint.h
 
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stddef.h:
 
 /usr/include/sys/types.h:
 
@@ -122,8 +122,6 @@ libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.o: /home/rafa
 
 /usr/include/bits/long-double.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdint.h:
-
 /usr/include/bits/typesizes.h:
 
 /usr/include/bits/struct_rwlock.h:
@@ -141,6 +139,8 @@ libs/glew-2.1.0/build/cmake/CMakeFiles/glew_s.dir/__/__/src/glew.c.o: /home/rafa
 /usr/include/bits/types/clock_t.h:
 
 /usr/include/bits/stdint-uintn.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdint.h:
 
 /usr/include/endian.h:
 

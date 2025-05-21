@@ -15,6 +15,7 @@ libs/stb/CMakeFiles/stb.dir/stb_image.c.o
  /usr/include/bits/flt-eval-method.h
  /usr/include/bits/fp-fast.h
  /usr/include/bits/fp-logb.h
+ /usr/include/bits/iscanonical.h
  /usr/include/bits/libc-header-start.h
  /usr/include/bits/libm-simd-decl-stubs.h
  /usr/include/bits/local_lim.h
@@ -22,6 +23,7 @@ libs/stb/CMakeFiles/stb.dir/stb_image.c.o
  /usr/include/bits/math-vector.h
  /usr/include/bits/mathcalls-helper-functions.h
  /usr/include/bits/mathcalls-macros.h
+ /usr/include/bits/mathcalls-narrow.h
  /usr/include/bits/mathcalls.h
  /usr/include/bits/posix1_lim.h
  /usr/include/bits/posix2_lim.h
@@ -81,15 +83,15 @@ libs/stb/CMakeFiles/stb.dir/stb_image.c.o
  /usr/include/sys/cdefs.h
  /usr/include/sys/select.h
  /usr/include/sys/types.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/emmintrin.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/limits.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/mm_malloc.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/mmintrin.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdint.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/syslimits.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/xmmintrin.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/emmintrin.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/limits.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/mm_malloc.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/mmintrin.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdarg.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stddef.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdint.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/syslimits.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/xmmintrin.h
 
 libs/stb/CMakeFiles/stb.dir/stb_image_write.c.o
  /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/libs/stb/stb_image_write.c
@@ -105,12 +107,14 @@ libs/stb/CMakeFiles/stb.dir/stb_image_write.c.o
  /usr/include/bits/flt-eval-method.h
  /usr/include/bits/fp-fast.h
  /usr/include/bits/fp-logb.h
+ /usr/include/bits/iscanonical.h
  /usr/include/bits/libc-header-start.h
  /usr/include/bits/libm-simd-decl-stubs.h
  /usr/include/bits/long-double.h
  /usr/include/bits/math-vector.h
  /usr/include/bits/mathcalls-helper-functions.h
  /usr/include/bits/mathcalls-macros.h
+ /usr/include/bits/mathcalls-narrow.h
  /usr/include/bits/mathcalls.h
  /usr/include/bits/pthreadtypes-arch.h
  /usr/include/bits/pthreadtypes.h
@@ -160,6 +164,6 @@ libs/stb/CMakeFiles/stb.dir/stb_image_write.c.o
  /usr/include/sys/cdefs.h
  /usr/include/sys/select.h
  /usr/include/sys/types.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h
- /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stddef.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stdarg.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include/stddef.h
 
