@@ -138,7 +138,7 @@ void Scene::render(float dt)
 	near z.B. 1.0f	Alles näher als 1.0 wird abgeschnitten (Clipping)
 	far z.B. 10.0f	Alles weiter als 10.0 wird nicht gezeichnet
 	aspectRatio	Falsches Seitenverhältnis verzerrt Bild (z.B. gestaucht/gestreckt)*/
-	
+
 	glm::mat4 view = glm::lookAt(
 		glm::vec3(0.0f, 4.0f, 20.0f), // Kameraposition
 		glm::vec3(0.0f, 0.0f, 0.0f), //Blickpunkt
