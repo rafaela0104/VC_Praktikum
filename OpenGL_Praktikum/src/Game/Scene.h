@@ -12,6 +12,14 @@ public:
 	Scene(OpenGLWindow* window);
 	~Scene();
 
+	void loadShaders();
+
+	void createSceneGraph();
+
+	void configureVaoVboNoNormals();
+	void configureVaoVboWithNormals();
+
+
 	bool init();
 	void shutdown();
 	void render(float dt);

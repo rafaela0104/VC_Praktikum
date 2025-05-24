@@ -1,4 +1,4 @@
-/home/rafaela/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum -B /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
+/home/mirer/IDEs/Clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum -B /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   Compatibility with CMake < 3.5 will be removed from a future version of
   CMake.
@@ -60,19 +60,19 @@ CMake Deprecation Warning at libs/glew-2.1.0/build/cmake/CMakeLists.txt:7 (cmake
   CMake that the project does not need compatibility with older versions.
 
 
-CMake Warning (dev) at /home/rafaela/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/FindOpenGL.cmake:415 (message):
+CMake Warning (dev) at /home/mirer/IDEs/Clion/bin/cmake/linux/x64/share/cmake-3.29/Modules/FindOpenGL.cmake:415 (message):
   Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
   available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
   cmake_policy command to set the policy and suppress this warning.
 
   FindOpenGL found both a legacy GL library:
 
-    OPENGL_gl_LIBRARY: /usr/lib/libGL.so
+    OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
 
   and GLVND libraries for OpenGL and GLX:
 
-    OPENGL_opengl_LIBRARY: /usr/lib/libOpenGL.so
-    OPENGL_glx_LIBRARY: /usr/lib/libGLX.so
+    OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+    OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
 
   OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
   compatibility with CMake 3.10 and below the legacy GL library will be used.
@@ -80,19 +80,19 @@ Call Stack (most recent call first):
   libs/glew-2.1.0/build/cmake/CMakeLists.txt:40 (find_package)
 This warning is for project developers.  Use -Wno-dev to suppress it.
 
-CMake Warning (dev) at /home/rafaela/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/FindOpenGL.cmake:415 (message):
+CMake Warning (dev) at /home/mirer/IDEs/Clion/bin/cmake/linux/x64/share/cmake-3.29/Modules/FindOpenGL.cmake:415 (message):
   Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
   available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
   cmake_policy command to set the policy and suppress this warning.
 
   FindOpenGL found both a legacy GL library:
 
-    OPENGL_gl_LIBRARY: /usr/lib/libGL.so
+    OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
 
   and GLVND libraries for OpenGL and GLX:
 
-    OPENGL_opengl_LIBRARY: /usr/lib/libOpenGL.so
-    OPENGL_glx_LIBRARY: /usr/lib/libGLX.so
+    OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+    OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
 
   OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
   compatibility with CMake 3.10 and below the legacy GL library will be used.
@@ -110,4 +110,4 @@ CMake Deprecation Warning at libs/stb/CMakeLists.txt:1 (cmake_minimum_required):
 
 -- Configuring done (0.2s)
 -- Generating done (0.1s)
--- Build files have been written to: /home/rafaela/Uni/Semester4/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
+-- Build files have been written to: /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug

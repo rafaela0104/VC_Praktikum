@@ -1,5 +1,7 @@
 #include "Scene.h"
 #include <AssetManager.h>
+#include "../Framework/SceneElements/cube.h"
+#include "OPENGL_PRAKTIKUM_CUBEWITHNORMALSCOLORED_H.h"
 
 float rightArmRotationAngle = 0.0f;
 
@@ -12,109 +14,132 @@ Scene::Scene(OpenGLWindow * window) :
 Scene::~Scene()
 {}
 
+void Scene::loadShaders() {
+	// Shader laden
+	m_assets.addShaderProgram("shader", AssetManager::createShaderProgram("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl"));
+	m_shader = m_assets.getShaderProgram("shader");
+	m_shader->use();
+}
+
+void Scene::createSceneGraph() {
+	// Szene aufbauen
+	m_root = std::make_shared<Transform>();
+	//m_root->scale(glm::vec3(0.15f)); // <- Szene kleiner skalieren!
+	//m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));
+
+	m_torso = std::make_shared<Transform>();
+	m_torso->translate(glm::vec3(0.0f, -2.75f, 0.0f));
+	m_torso->scale(glm::vec3(2.0f, 4.0f, 1.0f));
+
+	glm::vec3 arm(1.3f, 0.0f, 0.0f);
+
+	m_leftUpperArm = std::make_shared<Transform>();
+	m_leftUpperArm->translate(glm::vec3(-0.65f, 0.5f, 0.5f));
+	m_leftUpperArm->scale(glm::vec3(0.25f, 0.2f, 1.0f));
+	m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.4f, 0.0f), arm);
+
+
+	m_leftLowerArm = std::make_shared<Transform>();
+	m_leftLowerArm->translate(glm::vec3(glm::vec3(0.0f, 0.0f, 0.8f)));
+	m_leftLowerArm->scale(glm::vec3(1.0f, 1.0f, 0.5f));
+
+
+	m_rightUpperArm = std::make_shared<Transform>();
+	m_rightUpperArm->translate(glm::vec3(0.65f, 0.3f, 0.5f));
+	m_rightUpperArm->scale(glm::vec3(0.25f, 0.2f, 1.0f));
+	m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), arm);
+
+	m_rightLowerArm = std::make_shared<Transform>();
+	m_rightLowerArm->translate(glm::vec3(0.0f, 0.0f, 0.8f));
+	m_rightLowerArm->scale(glm::vec3(1.0f, 1.0f, 0.5f));
+
+	m_leftLeg = std::make_shared<Transform>();
+	m_leftLeg->translate(glm::vec3(-0.25f, -0.7f, 0.0f));
+	m_leftLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
+
+	m_rightLeg = std::make_shared<Transform>();
+	m_rightLeg->translate(glm::vec3(0.25f, -0.7f, 0.0f));
+	m_rightLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
+
+	// Struktur aufbauen
+	m_root->addChild(m_torso);
+	m_torso->addChild(m_leftUpperArm);
+	m_leftUpperArm->addChild(m_leftLowerArm);
+	m_torso->addChild(m_rightUpperArm);
+	m_rightUpperArm->addChild(m_rightLowerArm);
+	m_torso->addChild(m_leftLeg);
+	m_torso->addChild(m_rightLeg);
+}
+
+void Scene::configureVaoVboNoNormals() {
+	// VAO + VBO
+	glGenVertexArrays(1, &m_vao);
+	glBindVertexArray(m_vao);
+
+	glGenBuffers(1, &m_vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVert), cubeVert, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+
+	glGenBuffers(1, &m_vio);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vio);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubeInd), cubeInd, GL_STATIC_DRAW);
+
+	glBindVertexArray(0);
+
+	// Face Culling & Depth
+	glEnable(GL_CULL_FACE);
+	glFrontFace(GL_CCW);
+	glCullFace(GL_BACK);
+	glEnable(GL_DEPTH_TEST);
+}
+void Scene::configureVaoVboWithNormals() {
+	// VAO + VBO
+	// Generate and bind VAO
+	glGenVertexArrays(1, &m_vao);
+	glBindVertexArray(m_vao);
+
+	// Generate and bind VBO
+	glGenBuffers(1, &m_vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(normalCubeVert), normalCubeVert, GL_STATIC_DRAW);
+
+	// Position attribute (location = 0)
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+
+	// Normal attribute (location = 1)
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+
+	// Color attribute (location = 2)
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
+
+	// Unbind VAO
+	glBindVertexArray(0);
+
+	// Enable face culling and depth testing
+	//glEnable(GL_CULL_FACE);
+	//glFrontFace(GL_CCW);
+	//glCullFace(GL_BACK);
+	glEnable(GL_DEPTH_TEST);
+}
+
 bool Scene::init()
 {
 	try
 	{
-		// Shader laden
-		m_assets.addShaderProgram("shader", AssetManager::createShaderProgram("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl"));
-		m_shader = m_assets.getShaderProgram("shader");
-		m_shader->use();
+		loadShaders();
 
-		// Würfel-Geometrie
-		static const float cubeVert[] = {
-			0.5, -0.5, -0.5, 1, 0, 0,
-			0.5, -0.5, 0.5, 0, 1, 0,
-			-0.5, -0.5, 0.5, 0, 0, 1,
-			-0.5, -0.5, -0.5, 1, 1, 0,
-			0.5, 0.5, -0.5, 1, 0, 1,
-			0.5, 0.5, 0.5, 0, 1, 1,
-			-0.5, 0.5, 0.5, 1, 1, 1,
-			-0.5, 0.5, -0.5, 0.5, 1, 0.5
-		};
+		configureVaoVboWithNormals();
 
-		static const int cubeInd[] = {
-			1, 2, 3,  7, 6, 5,
-			4, 5, 1,  5, 6, 2,
-			2, 6, 7,  0, 3, 7,
-			0, 1, 3,  4, 7, 5,
-			0, 4, 1,  1, 5, 2,
-			3, 2, 7,  4, 0, 7
-		};
-
-		// VAO + VBO
-		glGenVertexArrays(1, &m_vao);
-		glBindVertexArray(m_vao);
-
-		glGenBuffers(1, &m_vbo);
-		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVert), cubeVert, GL_STATIC_DRAW);
-
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
-
-		glGenBuffers(1, &m_vio);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_vio);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubeInd), cubeInd, GL_STATIC_DRAW);
-
-		glBindVertexArray(0);
-
-		// Face Culling & Depth
-		glEnable(GL_CULL_FACE);
-		glFrontFace(GL_CCW);
-		glCullFace(GL_BACK);
-		glEnable(GL_DEPTH_TEST);
-
-		// Szene aufbauen
-		m_root = std::make_shared<Transform>();
-		//m_root->scale(glm::vec3(0.15f)); // <- Szene kleiner skalieren!
-		//m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));
-
-		m_torso = std::make_shared<Transform>();
-		m_torso->translate(glm::vec3(0.0f, -2.75f, 0.0f));
-		m_torso->scale(glm::vec3(2.0f, 4.0f, 1.0f));
-
-		glm::vec3 arm(1.3f, 0.0f, 0.0f);
-
-		m_leftUpperArm = std::make_shared<Transform>();
-		m_leftUpperArm->translate(glm::vec3(-0.65f, 0.5f, 0.5f));
-		m_leftUpperArm->scale(glm::vec3(0.25f, 0.2f, 1.0f));
-		m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.4f, 0.0f), arm);
-
-
-		m_leftLowerArm = std::make_shared<Transform>();
-		m_leftLowerArm->translate(glm::vec3(glm::vec3(0.0f, 0.0f, 0.8f)));
-		m_leftLowerArm->scale(glm::vec3(1.0f, 1.0f, 0.5f));
-
-
-		m_rightUpperArm = std::make_shared<Transform>();
-		m_rightUpperArm->translate(glm::vec3(0.65f, 0.3f, 0.5f));
-		m_rightUpperArm->scale(glm::vec3(0.25f, 0.2f, 1.0f));
-		m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), arm);
-
-		m_rightLowerArm = std::make_shared<Transform>();
-		m_rightLowerArm->translate(glm::vec3(0.0f, 0.0f, 0.8f));
-		m_rightLowerArm->scale(glm::vec3(1.0f, 1.0f, 0.5f));
-
-		m_leftLeg = std::make_shared<Transform>();
-		m_leftLeg->translate(glm::vec3(-0.25f, -0.7f, 0.0f));
-		m_leftLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
-
-		m_rightLeg = std::make_shared<Transform>();
-		m_rightLeg->translate(glm::vec3(0.25f, -0.7f, 0.0f));
-		m_rightLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
-
-		// Struktur aufbauen
-		m_root->addChild(m_torso);
-		m_torso->addChild(m_leftUpperArm);
-		m_leftUpperArm->addChild(m_leftLowerArm);
-		m_torso->addChild(m_rightUpperArm);
-		m_rightUpperArm->addChild(m_rightLowerArm);
-		m_torso->addChild(m_leftLeg);
-		m_torso->addChild(m_rightLeg);
+		createSceneGraph();
 
 		std::cout << "Scene initialization done\n";
 		return true;
@@ -153,6 +178,13 @@ void Scene::render(float dt)
 		0.1f,
 		100.0f);
 
+	glm::vec3 lightPos(2.0f, 2.0f, 2.0f); // Light position
+	glm::vec3 lightColor(1.0f, 1.0f, 1.0f); // White light
+
+	m_shader->use();
+	m_shader->setUniform("lightPos", lightPos);
+	m_shader->setUniform("lightColor", lightColor);
+
 	m_shader->setUniform("viewMatrix", view, false);
 	m_shader->setUniform("projectionMatrix", projection, false);
 
@@ -167,7 +199,9 @@ void Scene::renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentM
 	m_shader->setUniform("modelMatrix", model, false);
 
 	glBindVertexArray(m_vao);
-	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	//glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	glBindVertexArray(0);
 
 	for (auto& child : node->getChildren())
 	{
