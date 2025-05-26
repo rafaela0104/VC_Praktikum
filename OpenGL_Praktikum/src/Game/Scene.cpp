@@ -61,6 +61,10 @@ void Scene::createSceneGraph() {
 	m_rightLeg->translate(glm::vec3(0.25f, -0.7f, 0.0f));
 	m_rightLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
 
+	m_lightCube = std::make_shared<Transform>();
+	m_lightCube->translate(glm::vec3(2.0f, 2.0f, 2.0f));
+	m_lightCube->scale(glm::vec3(0.2f, 0.2f, 0.2f));
+
 	// Struktur aufbauen
 	m_root->addChild(m_torso);
 	m_torso->addChild(m_leftUpperArm);
@@ -69,6 +73,8 @@ void Scene::createSceneGraph() {
 	m_rightUpperArm->addChild(m_rightLowerArm);
 	m_torso->addChild(m_leftLeg);
 	m_torso->addChild(m_rightLeg);
+	m_root->addChild(m_lightCube);
+
 }
 
 void Scene::configureVaoVboNoNormals() {
@@ -151,6 +157,27 @@ bool Scene::init()
 }
 
 
+void Scene::configureLighting() {
+	glm::vec4 initialLightPos(2.0f, 2.0f, 2.0f, 1.0f);
+	//glm::vec3 lightPos = glm::vec3(m_lightCube->getMatrix() * initialLightPos);
+	glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
+	glm::vec3 matSpecular(0.8f, 0.8f, 0.8f);
+	float matShinyness = 0.1f;
+
+	glm::mat4 lightCubeModelMatrix = m_lightCube->getMatrix();
+
+	glm::vec3 lightPos = glm::vec3(lightCubeModelMatrix * initialLightPos);
+
+	glm::vec3 lightCubeColor(1.0f, 1.0f, 1.0f);
+
+	m_shader->use();
+	m_shader->setUniform("lightColor", lightCubeColor);
+	m_shader->setUniform("lightPos", lightPos);
+	m_shader->setUniform("lightColor", lightColor);
+	m_shader->setUniform("matSpecular", matSpecular);
+	m_shader->setUniform("matShinyness", matShinyness);
+}
+
 void Scene::render(float dt)
 {
 	// Framebuffer löschen vor dem Zeichnen
@@ -178,16 +205,11 @@ void Scene::render(float dt)
 		0.1f,
 		100.0f);
 
-	glm::vec3 lightPos(2.0f, 2.0f, 2.0f); // Light position
-	glm::vec3 lightColor(1.0f, 1.0f, 1.0f); // White light
 
-	m_shader->use();
-	m_shader->setUniform("lightPos", lightPos);
-	m_shader->setUniform("lightColor", lightColor);
+	configureLighting();
 
 	m_shader->setUniform("viewMatrix", view, false);
 	m_shader->setUniform("projectionMatrix", projection, false);
-
 	// Hier keine Einzelzeichnung mehr nötig – alles passiert im Renderbaum
 	renderNode(m_root, glm::mat4(1.0f));
 }
@@ -217,6 +239,10 @@ void Scene::update(float dt)
 	float armSwing = glm::radians(15.0f * sinf(time * 2.0f));
 	glm::vec3 arm(0.01 * (sinf(time)), 0, 0);
 	float legSwing = glm::radians(15.0f) * sinf(time * 2.0f);
+
+	glm::vec3 lightPos = m_lightCube->getPosition();
+	m_shader ->setUniform("lightPos", lightPos);
+
 
 	//m_leftUpperArm->setRotation(glm::vec3(armSwing, 0.0f, 0.0f)); glm::vec3(0.05f * armSwing, 0.0f, 0.0f)
 	m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), arm);

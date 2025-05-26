@@ -21,6 +21,9 @@ public:
 
 
 	bool init();
+
+	void configureLighting();
+
 	void shutdown();
 	void render(float dt);
 	void renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentMatrix);
@@ -51,4 +54,5 @@ private:
 	std::shared_ptr<Transform> m_leftLeg;
 	std::shared_ptr<Transform> m_rightLeg;
 
+	std::shared_ptr<Transform> m_lightCube;
 };
