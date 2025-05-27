@@ -21,11 +21,14 @@ void Scene::loadShaders() {
 	m_shader->use();
 }
 
-void Scene::createSceneGraph() {
+
+void Scene::createTransforms() {
 	// Szene aufbauen
+
 	m_root = std::make_shared<Transform>();
-	//m_root->scale(glm::vec3(0.15f)); // <- Szene kleiner skalieren!
-	//m_root->rotate(glm::vec3(0.0f, glm::radians(45.0f), 0.0f));
+
+	m_head = std::make_shared<Transform>();
+	m_head->scale(glm::vec3(2.0f)); // <- Szene kleiner skalieren!
 
 	m_torso = std::make_shared<Transform>();
 	m_torso->translate(glm::vec3(0.0f, -2.75f, 0.0f));
@@ -65,8 +68,13 @@ void Scene::createSceneGraph() {
 	m_lightCube->translate(glm::vec3(2.0f, 2.0f, 2.0f));
 	m_lightCube->scale(glm::vec3(0.2f, 0.2f, 0.2f));
 
+
+}
+
+void Scene::createSceneGraph() {
 	// Struktur aufbauen
-	m_root->addChild(m_torso);
+	m_root->addChild(m_head);
+	m_head->addChild(m_torso);
 	m_torso->addChild(m_leftUpperArm);
 	m_leftUpperArm->addChild(m_leftLowerArm);
 	m_torso->addChild(m_rightUpperArm);
@@ -74,7 +82,6 @@ void Scene::createSceneGraph() {
 	m_torso->addChild(m_leftLeg);
 	m_torso->addChild(m_rightLeg);
 	m_root->addChild(m_lightCube);
-
 }
 
 void Scene::configureVaoVboNoNormals() {
@@ -145,6 +152,8 @@ bool Scene::init()
 
 		configureVaoVboWithNormals();
 
+		createTransforms();
+
 		createSceneGraph();
 
 		std::cout << "Scene initialization done\n";
@@ -158,16 +167,16 @@ bool Scene::init()
 
 
 void Scene::configureLighting() {
-	glm::vec4 initialLightPos(2.0f, 2.0f, 2.0f, 1.0f);
+	glm::vec3 lightPos(0.0f, 2.0f, 2.0f);
 	//glm::vec3 lightPos = glm::vec3(m_lightCube->getMatrix() * initialLightPos);
 	glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
-	glm::vec3 matSpecular(0.8f, 0.8f, 0.8f);
-	float matShinyness = 0.1f;
-
+	glm::vec3 matSpecular(0.8f, 0.2f, 0.6f);
+	float matShinyness = 0.5f;
+/*
 	glm::mat4 lightCubeModelMatrix = m_lightCube->getMatrix();
 
 	glm::vec3 lightPos = glm::vec3(lightCubeModelMatrix * initialLightPos);
-
+*/
 	glm::vec3 lightCubeColor(1.0f, 1.0f, 1.0f);
 
 	m_shader->use();
@@ -178,24 +187,17 @@ void Scene::configureLighting() {
 	m_shader->setUniform("matShinyness", matShinyness);
 }
 
-void Scene::render(float dt)
-{
-	// Framebuffer löschen vor dem Zeichnen
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	m_shader->use();
-
+void Scene::configureCamera() {
 	/*fovy zB. glm::radians(90.0f)	Weitwinkel: größere Perspektivverzerrung, mehr vom Raum sichtbar
 	near z.B. 1.0f	Alles näher als 1.0 wird abgeschnitten (Clipping)
 	far z.B. 10.0f	Alles weiter als 10.0 wird nicht gezeichnet
 	aspectRatio	Falsches Seitenverhältnis verzerrt Bild (z.B. gestaucht/gestreckt)*/
-	
+
 	glm::mat4 view = glm::lookAt(
-		glm::vec3(0.0f, 4.0f, 20.0f), // Kameraposition
+		glm::vec3(-10.0f, 5.0f, 30.0f), // Kameraposition
 		glm::vec3(0.0f, 0.0f, 0.0f), //Blickpunkt
 		glm::vec3(0.0f, 1.0f, 0.0f) //Up-Vektor
-		);
+	);
 
 	//Seitenverhältnis
 	float aspectRatio = static_cast<float>(m_window->getFrameBufferWidth()) / static_cast<float>(m_window->getFrameBufferHeight());
@@ -205,11 +207,24 @@ void Scene::render(float dt)
 		0.1f,
 		100.0f);
 
+	m_shader->setUniform("viewMatrix", view, false);
+	m_shader->setUniform("projectionMatrix", projection, false);
+}
+
+void Scene::render(float dt)
+{
+	// Framebuffer löschen vor dem Zeichnen
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	m_shader->use();
+
+	configureCamera();
+
 
 	configureLighting();
 
-	m_shader->setUniform("viewMatrix", view, false);
-	m_shader->setUniform("projectionMatrix", projection, false);
+
 	// Hier keine Einzelzeichnung mehr nötig – alles passiert im Renderbaum
 	renderNode(m_root, glm::mat4(1.0f));
 }
@@ -235,22 +250,14 @@ void Scene::update(float dt)
 {
 	static float time = 0.0f;
 	time += dt;
-	m_root->rotate(glm::vec3(0.0f, glm::radians(0.5f), 0.0f));
-	float armSwing = glm::radians(15.0f * sinf(time * 2.0f));
+	m_head->rotate(glm::vec3(0.0f, glm::radians(0.5f), 0.0f));
+
 	glm::vec3 arm(0.01 * (sinf(time)), 0, 0);
-	float legSwing = glm::radians(15.0f) * sinf(time * 2.0f);
-
-	glm::vec3 lightPos = m_lightCube->getPosition();
-	m_shader ->setUniform("lightPos", lightPos);
-
-
-	//m_leftUpperArm->setRotation(glm::vec3(armSwing, 0.0f, 0.0f)); glm::vec3(0.05f * armSwing, 0.0f, 0.0f)
 	m_leftUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), arm);
 	m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 0.5f, 0.0f), -arm);
-	//m_rightUpperArm->rotateAroundPoint(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.05f * (-armSwing), 0.0f, 0.0f));
 
+	float legSwing = glm::radians(15.0f) * sinf(time * 2.0f);
 	m_leftLeg->rotateAroundPoint(glm::vec3(0.25f, 0.0f, 0.0f), glm::vec3(0.05f * legSwing, 0.0f, 0.0f));
-	//m_leftLeg->setRotation(glm::vec3(-legSwing, 0.0f, 0.0f));
 	m_rightLeg->rotateAroundPoint(glm::vec3(-0.25f, 0.0f, 0.0f), glm::vec3(0.05f * (-legSwing), 0.0f, 0.0f));
 }
 

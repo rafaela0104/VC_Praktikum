@@ -28,7 +28,7 @@ void main() {
     // Ambient
     float ambientStrength = 0.1;
     vec3 ambientColor = colorVS;
-    vec3 ambientTerm = ambientColor * ambientStrength;
+    vec3 ambientTerm = ambientColor * ambientStrength * lightColor;
     color += vec4(ambientTerm, 1.0);
 
 
@@ -39,11 +39,11 @@ void main() {
     vec3 R = normalize(reflect(-L,N));
     float cosBeta = max(0.0, dot(R,V));
     float cosBetak = pow(cosBeta, matShinyness);
-    vec3 specularTerm = matSpecular * cosBetak * 0.5;
+    vec3 specularTerm = matSpecular * cosBetak * lightColor;
 
-    //color += vec4(specularTerm * cosBetak * 0,5, 1.0);
+    color += vec4(specularTerm * cosBetak, 1.0);
 
-    vec3 result = ambientTerm + diffuseTerm + specularTerm;
-    color = vec4(result, 1.0);
+    //vec3 result = ambientTerm + diffuseTerm + specularTerm;
+    //color = vec4(result, 1.0);
 
 }
