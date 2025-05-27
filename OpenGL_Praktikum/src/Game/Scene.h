@@ -12,7 +12,22 @@ public:
 	Scene(OpenGLWindow* window);
 	~Scene();
 
+	void loadShaders();
+
+	void createSceneGraph();
+
+	void createTransforms();
+
+	void configureVaoVboNoNormals();
+	void configureVaoVboWithNormals();
+
+
 	bool init();
+
+	void configureLighting();
+
+	void configureCamera();
+
 	void shutdown();
 	void render(float dt);
 	void renderNode(std::shared_ptr<Transform> node, const glm::mat4& parentMatrix);
@@ -34,6 +49,7 @@ private:
 	GLuint m_vao = 0, m_vbo = 0, m_vio = 0;
 
 	std::shared_ptr<Transform> m_root;
+	std::shared_ptr<Transform> m_head;
 	std::shared_ptr<Transform> m_torso;
 	// std::shared_ptr<Transform> m_head;
 	std::shared_ptr<Transform> m_leftUpperArm;
@@ -43,4 +59,5 @@ private:
 	std::shared_ptr<Transform> m_leftLeg;
 	std::shared_ptr<Transform> m_rightLeg;
 
+	std::shared_ptr<Transform> m_lightCube;
 };

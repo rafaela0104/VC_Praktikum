@@ -2,3 +2,15 @@ An OpenGL error occured at file: "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktiku
 invalid operation
 An OpenGL error occured at file: "/home/rafaela/Uni/Semester4/VC/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.cpp", line: 47:
 invalid operation
+An OpenGL error occured at file: "/home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.h", line: 93:
+invalid operation
+An OpenGL error occured at file: "/home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.h", line: 93:
+invalid operation
+An OpenGL error occured at file: "/home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.h", line: 104:
+invalid operation
+An OpenGL error occured at file: "/home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.h", line: 104:
+invalid operation
+An OpenGL error occured at file: "/home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.h", line: 104:
+invalid operation
+An OpenGL error occured at file: "/home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/src/Framework/Assets/ShaderProgram.h", line: 104:
+invalid operation
