@@ -32,8 +32,6 @@ void main() {
     color += vec4(ambientTerm, 1.0);
 
 
-
-
     // Specular
     vec3 V = normalize(viewDir);
     vec3 R = normalize(reflect(-L,N));
@@ -41,7 +39,7 @@ void main() {
     float cosBetak = pow(cosBeta, matShinyness);
     vec3 specularTerm = matSpecular * cosBetak * lightColor;
 
-    color += vec4(specularTerm * cosBetak, 1.0);
+    color += vec4(specularTerm * cosBetak * 8, 1.0);
 
     //vec3 result = ambientTerm + diffuseTerm + specularTerm;
     //color = vec4(result, 1.0);

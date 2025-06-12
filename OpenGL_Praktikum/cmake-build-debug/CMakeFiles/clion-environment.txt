@@ -1,4 +1,4 @@
 ToolSet: 1.0 (local)Ninja: 1.12.0@/home/mirer/IDEs/Clion/bin/ninja/linux/x64/ninja
 Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=/home/mirer/IDEs/Clion/bin/ninja/linux/x64/ninja
+Options:

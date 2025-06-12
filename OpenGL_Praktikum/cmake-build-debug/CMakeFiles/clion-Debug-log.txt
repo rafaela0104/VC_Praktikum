@@ -1,4 +1,4 @@
-/home/mirer/IDEs/Clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/mirer/IDEs/Clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum -B /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
+/home/mirer/IDEs/Clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum -B /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug
 CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
   Compatibility with CMake < 3.5 will be removed from a future version of
   CMake.
@@ -109,5 +109,5 @@ CMake Deprecation Warning at libs/stb/CMakeLists.txt:1 (cmake_minimum_required):
 
 
 -- Configuring done (0.3s)
--- Generating done (0.0s)
+-- Generating done (0.1s)
 -- Build files have been written to: /home/mirer/Workspace/CLionProjects/VC/VC_Praktikum/OpenGL_Praktikum/cmake-build-debug

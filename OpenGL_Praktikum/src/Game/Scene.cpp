@@ -65,7 +65,7 @@ void Scene::createTransforms() {
 	m_rightLeg->scale(glm::vec3(0.25f, 0.4f, 0.25f));
 
 	m_lightCube = std::make_shared<Transform>();
-	m_lightCube->translate(glm::vec3(2.0f, 2.0f, 2.0f));
+	m_lightCube->translate(glm::vec3(4.0f, 2.0f, 4.0f));
 	m_lightCube->scale(glm::vec3(0.2f, 0.2f, 0.2f));
 
 
@@ -167,11 +167,11 @@ bool Scene::init()
 
 
 void Scene::configureLighting() {
-	glm::vec3 lightPos(0.0f, 2.0f, 2.0f);
+	glm::vec3 lightPos(4.0f, 2.0f, 4.0f);
 	//glm::vec3 lightPos = glm::vec3(m_lightCube->getMatrix() * initialLightPos);
 	glm::vec3 lightColor(1.0f, 1.0f, 1.0f);
 	glm::vec3 matSpecular(0.8f, 0.2f, 0.6f);
-	float matShinyness = 0.5f;
+	float matShinyness = 0.8f;
 /*
 	glm::mat4 lightCubeModelMatrix = m_lightCube->getMatrix();
 
