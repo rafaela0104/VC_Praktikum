@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "../../../../lib/libGLEWd.so"
   "../../../../lib/libGLEWd.so.2.1"
   "../../../../lib/libGLEWd.so.2.1.0"
+  "CMakeFiles/glew.dir/link.d"
   "CMakeFiles/glew.dir/__/__/src/glew.c.o"
   "CMakeFiles/glew.dir/__/__/src/glew.c.o.d"
 )

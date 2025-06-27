@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/glm_dummy.dir/link.d"
   "CMakeFiles/glm_dummy.dir/detail/dummy.cpp.o"
   "CMakeFiles/glm_dummy.dir/detail/dummy.cpp.o.d"
   "CMakeFiles/glm_dummy.dir/detail/glm.cpp.o"
