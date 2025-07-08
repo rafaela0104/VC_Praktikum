@@ -92,6 +92,8 @@ filtered_F6 = cv2.filter2D(kante, ddepth=-1, kernel=F6, delta=128, borderType=cv
 cv2.imwrite("kante_filtered_F1.png", filtered_F1)
 cv2.imwrite("kante_filtered_F1_F2.png", filtered_F1_F2)
 cv2.imwrite("kante_filtered_F3.png", filtered_F3)
+cv2.imwrite("kante_filtered_F4.png", filtered_F4)
+cv2.imwrite("kante_filtered_F5.png", filtered_F5)
 
 # Ergebnisse anzeigen (optional)
 cv2.imshow("Original kante.png", kante)
