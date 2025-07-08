@@ -61,6 +61,16 @@ F3 = np.array([[-1, -1, -1],
                [-1, 8, -1],
                [-1, -1, -1]], dtype=np.float32)  # Schärfungsfilter, Summe=0
 
+F4 = np.array([[0, 0, 0],
+               [0.333, 0.333, 0.333],
+               [0, 0, 0]], dtype=np.float32)
+F5 = np.array([[0, 0, 0],
+               [0, 1, 0],
+               [0, 0, 0]], dtype=np.float32)
+F6 = np.array([[0, 0, 0],
+               [0.333, -0.666, 0.333],
+               [0, 0, 0]], dtype=np.float32)
+
 # Faltung F1 mit delta=128 (wegen Summe=0)
 filtered_F1 = cv2.filter2D(kante, ddepth=-1, kernel=F1, delta=128, borderType=cv2.BORDER_DEFAULT)
 
@@ -69,6 +79,14 @@ filtered_F1_F2 = cv2.filter2D(filtered_F1, ddepth=-1, kernel=F2, delta=128, bord
 
 # Auf Original F3 anwenden mit delta=128
 filtered_F3 = cv2.filter2D(kante, ddepth=-1, kernel=F3, delta=128, borderType=cv2.BORDER_DEFAULT)
+
+filtered_F4 = cv2.filter2D(kante, ddepth=-1, kernel=F4, borderType=cv2.BORDER_DEFAULT)
+
+#faltung mit F5
+filtered_F5 = cv2.filter2D(kante, ddepth=-1, kernel=F5, borderType=cv2.BORDER_DEFAULT)
+
+# Faltung mit F6
+filtered_F6 = cv2.filter2D(kante, ddepth=-1, kernel=F6, delta=128, borderType=cv2.BORDER_DEFAULT)
 
 # Ergebnisse speichern
 cv2.imwrite("kante_filtered_F1.png", filtered_F1)
@@ -80,6 +98,10 @@ cv2.imshow("Original kante.png", kante)
 cv2.imshow("Faltung F1 + 128", filtered_F1)
 cv2.imshow("Faltung F1 dann F2 + 128", filtered_F1_F2)
 cv2.imshow("Faltung F3 + 128", filtered_F3)
+cv2.imshow("Faltung F4 + 128", filtered_F4)
+cv2.imshow("Faltung F5 + 128", filtered_F5)
+cv2.imshow("Faltung F6 + 128", filtered_F6)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
